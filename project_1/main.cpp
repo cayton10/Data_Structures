@@ -18,7 +18,7 @@ using namespace std;
 
 //Function prototypes
 //Random includes default values for lack of user input 
-void Random(int num1 = 99, int num2 = 0);
+int Random(int num1 = 99, int num2 = 0);
 
 //Main function
 int main()//Entry point (muay importante)
@@ -58,14 +58,13 @@ int main()//Entry point (muay importante)
     //User choice control flow for passing (or not passing) appropriate parameters
     if (userChoice == 0)
     {   //Call Random function w/ default parameters
-        Random();
+        cout << "Your random number is: " << Random() << endl;
     }
     else if (userChoice == 1)
     {
         cout << "Enter upper limit for random number generator." << endl;
         cin >> num1;
-        Random(num1);
-    }
+        cout << "Your random number is: " << Random(num1) << endl;    }
     else
     {
         //Appropriate user prompts and entries
@@ -74,8 +73,7 @@ int main()//Entry point (muay importante)
         cout << "Enter lower limit for random number generator." << endl;
         cin >> num2;
         //Call random function with user defined RNG limits
-        Random(num1, num2);
-    }
+        cout << "Your random number is: " << Random(num1, num2) << endl;    }
     
     
     //Apply appropriate error handling to force user to choose. 
@@ -87,7 +85,7 @@ int main()//Entry point (muay importante)
  *  Random function returns random number based on user choice from main function *
  *  *******************************************************************************/
 
-void Random(int num1, int num2)
+int Random(int num1, int num2)
 {
     //Declare result variable
     int result = rand();//Flush sink
@@ -98,6 +96,5 @@ void Random(int num1, int num2)
     //Print the result for user the result
     cout << "Your random number is: " << result << endl;
 
-    //Exit function
-    return;
+    return result;
 }

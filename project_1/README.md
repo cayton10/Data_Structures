@@ -2,7 +2,7 @@
 
 ## From Syllabus:
 Please complete the following in a single project:
-1. 	Write a function called Random() that takes up to 2 int parameters. If no numbers are passed in when the function is called, it returns a random number between 0 and 99. If 1 number is passed in, it returns a random number between 0 and that number. If 2 numbers are passed in, it returns a random number between the two numbers. (Hint: There are 2 different ways you could make a function that can be called with 0, 1, or 2 parameters; 1 way technically means writing 3 different functions, but I’d accept it.) (Note: Remember you can use this as a convenient tool in future projects!)	20%
+<strike>1. 	Write a function called Random() that takes up to 2 int parameters. If no numbers are passed in when the function is called, it returns a random number between 0 and 99. If 1 number is passed in, it returns a random number between 0 and that number. If 2 numbers are passed in, it returns a random number between the two numbers. (Hint: There are 2 different ways you could make a function that can be called with 0, 1, or 2 parameters; 1 way technically means writing 3 different functions, but I’d accept it.) (Note: Remember you can use this as a convenient tool in future projects!)</strike>	20%
 		
 2. 	Write a function called RandomFill() that takes an array of ints, its size, and fills the array with random numbers. To generate the random numbers use the function you wrote in problem 1. Test the function by calling it and displaying the resulting array.	20%
  		
