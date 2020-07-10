@@ -167,14 +167,17 @@ int main()//Entry point (muay importante)
 
     /********************* PROMPTS FOR FlipString() ********************************/
     cout << "Now we'll FLIP THE SCRIPt, pLaYbOi!!!" << endl << endl;
-    cout << "Enter a string, like a name or something." << endl;
+    cout << "Enter a string, like a name or PlAyBoI or something." << endl;
     //Get string from user
+    cin.clear();//Clear input stream
+    cin.ignore(100, '\n');//Ignore new line (CR)
     getline(cin, str);
 
     //Call FlipString()
     cout << "You entered: " << str << endl << endl;
     FlipString(str);
-    cout << "After FlipString() we have: " << str;
+    //Output user string
+    cout << "After FlipString() we have: " << str << endl << endl;
 
     
     return 0; 
