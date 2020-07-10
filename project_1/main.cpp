@@ -19,14 +19,19 @@ using namespace std;
 //Function prototypes
 //Random includes default values for lack of user input 
 int Random(int num1 = 99, int num2 = 0);
+int RandomFill(int array[], int size);
 
 //Main function
 int main()//Entry point (muay importante)
 {
-    //Declare variables
+    //Declaration of variables
+    //Variable declarations for Random()
     int userChoice;
     int num1;
     int num2;
+    //Array for RandomFill()
+    int arraySize = 5;
+    int randoArray[arraySize];
 
     //Seed RNG for unique runs
     srand(time(0));
@@ -64,7 +69,8 @@ int main()//Entry point (muay importante)
     {
         cout << "Enter upper limit for random number generator." << endl;
         cin >> num1;
-        cout << "Your random number is: " << Random(num1) << endl;    }
+        cout << "Your random number is: " << Random(num1) << endl;    
+    }
     else
     {
         //Appropriate user prompts and entries
@@ -73,10 +79,32 @@ int main()//Entry point (muay importante)
         cout << "Enter lower limit for random number generator." << endl;
         cin >> num2;
         //Call random function with user defined RNG limits
-        cout << "Your random number is: " << Random(num1, num2) << endl;    }
+        cout << "Your random number is: " << Random(num1, num2) << endl << endl;    
+    }
     
+
+    //Console output for RandomFill() 
+    cout << "Next we'll fill an array with 5 random numbers." << endl;
+    RandomFill(randoArray, arraySize);
+    cout << "Your 5 random numbers are: ";
+    //For loop to print randoArray
+    for (int i = 0; i < arraySize; ++i)
+    {
+        //If the loop hasn't reached the last value, add a comma after printing value
+        if(i < arraySize - 1)
+        {
+            cout << randoArray[i] << ", ";
+        }
+        //If all numbers are displayed, ommit comma and endl
+        else
+        {
+            cout << randoArray[i] << endl;
+        }
+        
+    }
     
-    //Apply appropriate error handling to force user to choose. 
+
+    
     
     return 0; 
 }
@@ -93,8 +121,25 @@ int Random(int num1, int num2)
     //Calculate appropriate range
     num1 = num1 - num2;
     result = rand() % num1 + num2;
-    //Print the result for user the result
-    cout << "Your random number is: " << result << endl;
 
     return result;
+}
+
+
+/** *********************************************************************************
+ * ****************************RANDOM FILL FUNCTION**********************************
+ * Fills function array indeces with random numbers and does so based on array size *
+ * *********************************************************************************/
+
+int RandomFill(int array[], int size)
+{
+    //For loop to populate array
+    for (int i = 0; i < size; ++i)
+    {
+        //Array at index [i] populated with Random() function
+        array[i] = Random();
+    }
+    
+    return array[size];
+    
 }
