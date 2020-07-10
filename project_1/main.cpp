@@ -21,6 +21,8 @@ using namespace std;
 int Random(int num1 = 99, int num2 = 0);
 int RandomFill(int array[], int size);
 bool IsFactor(int div1, int div2);
+//Practice with passing parameters by reference
+void FlipString(string &str);
 
 //Main function
 int main()//Entry point (muay importante)
@@ -37,11 +39,13 @@ int main()//Entry point (muay importante)
     int dividend;
     int divisor;
     int factorAnswer;
+    //Variable for FlipString()
+    string str;
 
     //Seed RNG for unique runs
     srand(time(0));
 
-/*
+
     cout << "We're going to generate some numbers here. " << endl 
          << "Enter '0' for a random number between 0 and 99. " << endl
          << "Enter '1' to define the upper limit of the random number." << endl
@@ -111,8 +115,7 @@ int main()//Entry point (muay importante)
     //Terminal formatting
     cout << endl << endl;
     
-    /******************************************************************************
-     ********************* PROMPTS FOR IsFactor() ********************************/
+    /********************* PROMPTS FOR IsFactor() ********************************/
 
     cout << "Now we're going to check if one integer is a factor of another." << endl;
     cout << "First, enter a dividend: ";
@@ -161,11 +164,24 @@ int main()//Entry point (muay importante)
     {
         cout << endl << divisor << " is NOT a factor of " << dividend << "!" << endl;
     }
+
+    /********************* PROMPTS FOR FlipString() ********************************/
+    cout << "Now we'll FLIP THE SCRIPt, pLaYbOi!!!" << endl << endl;
+    cout << "Enter a string, like a name or something." << endl;
+    //Get string from user
+    getline(cin, str);
+
+    //Call FlipString()
+    cout << "You entered: " << str << endl << endl;
+    FlipString(str);
+    cout << "After FlipString() we have: " << str;
+
     
     return 0; 
 }
 
 /** *******************************************************************************
+ ****************************   RANDOM FUNCTION  **********************************
  *  Random function returns random number based on user choice from main function *
  *  *******************************************************************************/
 
@@ -202,7 +218,7 @@ int RandomFill(int array[], int size)
 
 /** *********************************************************************************
  * **************************** IS FACTOR FUNCTION **********************************
- * Fills function array indeces with random numbers and does so based on array size *
+ * Boolean function determines if divisor is a factor of dividend (no remainder *****
  * *********************************************************************************/
 
 bool IsFactor(int div1, int div2)
@@ -214,5 +230,32 @@ bool IsFactor(int div1, int div2)
     else
     {
         return false;
+    }
+}
+
+/** *********************************************************************************
+ * ************************** FLIP STRING FUNCTION **********************************
+ * Changes user defined string from uppercase to lower and vice versa ************* *
+ * *********************************************************************************/
+
+void FlipString(string &str)
+{
+    //For loop to iterate through string
+    for(int i = 0; i < str.length(); ++i)
+    {
+        //Control flow for isupper()
+        //If string at index [i] is uppercase
+        if(isupper(str[i]))
+        {
+            //Change to lowercase
+            str[i] = tolower(str[i]);
+        }
+        else
+        //If string at index [i] is lowercase
+        {
+            //Change to uppercase
+            str[i] = toupper(str[i]);
+        }
+        
     }
 }
