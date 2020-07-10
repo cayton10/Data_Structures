@@ -20,6 +20,7 @@ using namespace std;
 //Random includes default values for lack of user input 
 int Random(int num1 = 99, int num2 = 0);
 int RandomFill(int array[], int size);
+bool IsFactor(int div1, int div2);
 
 //Main function
 int main()//Entry point (muay importante)
@@ -32,10 +33,15 @@ int main()//Entry point (muay importante)
     //Array for RandomFill()
     int arraySize = 5;
     int randoArray[arraySize];
+    //Variables for IsFactor()
+    int dividend;
+    int divisor;
+    int factorAnswer;
 
     //Seed RNG for unique runs
     srand(time(0));
 
+/*
     cout << "We're going to generate some numbers here. " << endl 
          << "Enter '0' for a random number between 0 and 99. " << endl
          << "Enter '1' to define the upper limit of the random number." << endl
@@ -99,12 +105,62 @@ int main()//Entry point (muay importante)
         else
         {
             cout << randoArray[i] << endl;
-        }
-        
+        } 
     }
-    
 
+    //Terminal formatting
+    cout << endl << endl;
     
+    /******************************************************************************
+     ********************* PROMPTS FOR IsFactor() ********************************/
+
+    cout << "Now we're going to check if one integer is a factor of another." << endl;
+    cout << "First, enter a dividend: ";
+    //User entry
+    cin >> dividend;
+    //Error handling control flow
+    if(cin.fail())
+    {
+        //Do... While error handling for user mistakes
+        do
+        {
+            cout << "Please enter a whole number." << endl;
+            cin.clear();//Clear input stream
+            cin.ignore(100, '\n');//Ignore newline (return)
+            cin >> dividend;//Allow user to reenter correct choice
+
+        } while (cin.fail());
+        //Condition is: failure (incorrect data type)
+    }
+
+    cout << "Next, enter the divisor: ";
+    cin >> divisor;
+
+    if(cin.fail())
+    {
+        //Do... While error handling for user mistakes
+        do
+        {
+            cout << "Please enter a whole number." << endl;
+            cin.clear();//Clear input stream
+            cin.ignore(100, '\n');//Ignore newline (return)
+            cin >> divisor;//Allow user to reenter correct choice
+
+        } while (cin.fail());
+        //Condition is: failure (incorrect data type)
+    }
+
+    //Call IsFactor() and output returned result
+    factorAnswer = IsFactor(dividend, divisor);
+    //Apropriate control flow gives result to user
+    if(factorAnswer == 1)
+    {
+        cout << endl << divisor << " is a factor of " << dividend << "!" << endl;
+    }
+    else
+    {
+        cout << endl << divisor << " is NOT a factor of " << dividend << "!" << endl;
+    }
     
     return 0; 
 }
@@ -142,4 +198,21 @@ int RandomFill(int array[], int size)
     
     return array[size];
     
+}
+
+/** *********************************************************************************
+ * **************************** IS FACTOR FUNCTION **********************************
+ * Fills function array indeces with random numbers and does so based on array size *
+ * *********************************************************************************/
+
+bool IsFactor(int div1, int div2)
+{
+    if (div1 % div2 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
