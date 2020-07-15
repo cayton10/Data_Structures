@@ -45,3 +45,5 @@ vampireCharacter.Display();//should show lower health.
 
 would result in vampireCharacter losing 5 health and character losing 5 power. Include some console output so it says something ‘Fireball cast on Modern Sexy Vampire. Modern Sexy Vampire’s stats are now: (and then call the Display function for the character)’. (Hint: This step won’t work without one particular concept I asked you to review on assignment 1...)	30%
 
+//Must pass by ref ^^^
+

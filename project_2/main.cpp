@@ -23,15 +23,33 @@ class Character
         int strength;
     //CAN Touch These
     public:
-    //Set name
+    //Default character constructor
+        Character()
+        {
+            name = "Unnamed Rider";
+            health = 100;
+            power = 200;
+            strength = 100;
+        }
+    //Set character name
         void setName(string str)
         {
             name = str;
         }
-    //Get name
+    //Get character name
         string getName()
         {
             return name;
+        }
+    //Set character health
+        void setHealth(int num)
+        {
+            health = num;
+        }
+    //Get Character health
+        int getHealth()
+        {
+            return health;
         }
 };
 //Ability class
@@ -42,6 +60,10 @@ class Ability
         string name;
         int powerCost;
         int healthEffect;
+    
+    //Public functions
+    public:
+        
 };
 
 int main()
@@ -49,19 +71,20 @@ int main()
     //Name placeholder for entry.
     string newName;
     string charName;
-    //Instantiate object
+    //Instantiating object calls default Character constructor
     Character sprinter;
-    //Testing console output
-    cout << "Hello world!";
-    //Prompt to enter racer name
-    cout << "Enter a sprinter's name: ";
-    getline(cin, newName);
+    Character climber;
+
+    cout << "\n" << sprinter.getName();
+    cout << "\n" << sprinter.getName() << "'s health: " << sprinter.getHealth();
 
     //Set racer name
-    sprinter.setName(newName);
+    sprinter.setName("Peter Sagan");
     //Display racer name
     charName = sprinter.getName();
     cout << "\nYour sprinter's name is: " << charName;
+    //Set values for remaining rider attributes
+
 
     return 0;
 }
