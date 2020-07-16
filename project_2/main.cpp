@@ -33,31 +33,55 @@ class Character
             power = 200;
             strength = 100;
         }
-    //Set character name
+    /** ************************************* setName() ****************************************
+    //Set character name */
         void setName(string str)
         {
             //For loop to interate over user supplied string
             for (unsigned i = 0; i < str.length(); ++i)
             {
+                //If any of the characters w/in string is a digit,
                 if(isdigit(str[i]))
                 {
+                    //Reset string
                     str = "";
+                    //Prompt again
                     cout << "Nix the numbers. Names only.\nEnter rider name: ";
                     getline(cin, str);
                     name = str;
                 }
-                name = str;
-            }   
+            }
+            //If no numbers are present, accept string as character name and exit function
+            name = str;
+            return;   
         }
+
     //Get character name
         string getName()
         {
             return name;
         }
-    //Set character health
+    /** ************************************* setHealth() ****************************************
+    //Set character health */
         void setHealth(int num)
         {
+            //Qualify input for health
+            while(num < 0 || num > 100)
+            {
+                cout << "Invalid health value.\nPlease enter a value between 0 and 100: ";
+                cin >> num;
+                if (cin.fail())
+                {
+                    cout << "We've been through this. Numbers only: ";
+                    cin.clear();//Clear input stream
+                    cin.ignore(100, '\n');
+                    cin >> num;
+                }
+                
+            }
+
             health = num;
+            return;
         }
     //Get Character health
         int getHealth()
@@ -139,8 +163,7 @@ int main()
 {
     //Name placeholder for entry.
     string newName;
-    //Variable to store name after "getting"
-    string charName;
+    int health;
     //Instantiating object calls default Character constructor
     Character sprinter;
     Character climber;
@@ -154,10 +177,25 @@ int main()
     //Set name of sprinter instance of character class
     sprinter.setName(newName); 
 
-    //Display racer name
-    charName = sprinter.getName();
-    cout << "\nYour sprinter's name is: " << charName << endl;
-    //Set values for remaining rider attributes
+    //Prompt user to enter health for sprinter racer
+    cout << "\nEnter sprinter health (whole number between 0 and 100): ";
+    cin >> health;
+    //Control flow for input of invalid data type
+    do
+    {
+        cout << "\nInvalid health entry. Please try again: ";
+        cin.clear();//Clear input stream
+        cin.ignore(100, '\n');//Ignore junk line / new line character
+        cin >> health;//Accept input again
+    }while(cin.fail());
+
+    //Set health of sprinter instance of character class
+    sprinter.setHealth(health);
+    //Output single values for inspection
+    cout << "Sprinter name: " << sprinter.getName() << endl;
+    cout << "Sprinter health: " << sprinter.getHealth() << endl;
+
+
 
 
     return 0;
