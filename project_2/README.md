@@ -4,7 +4,7 @@
 
 Assignment 2 – Classes and Objects
 Submit to MUOnline as a compressed (.zip) file containing your code project.
-1.	Create 2 classes. A Character class representing a generic character in a game, and an Ability class representing a generic ability a character can perform. 
+1.	<strike>Create 2 classes. A Character class representing a generic character in a game, and an Ability class representing a generic ability a character can perform.</strike>
 
 At a minimum a character should have a name and numeric values for health, power, and strength. An ability should have a name and numeric values for power cost and health effect. All variables should be private, with public functions for getting them and for setting them. Setter functions should validate that the result is valid (for instance setting their hp below 0 shouldn’t be allowed). An ability’s health affect could be positive (like a healing spell) or negative (like a damaging sword swing).
 
