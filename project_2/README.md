@@ -8,7 +8,7 @@ Submit to MUOnline as a compressed (.zip) file containing your code project.
 
 At a minimum a character should have a name and numeric values for health, power, and strength. An ability should have a name and numeric values for power cost and health effect. All variables should be private, with public functions for getting them and for setting them. Setter functions should validate that the result is valid (for instance setting their hp below 0 shouldn’t be allowed). An ability’s health affect could be positive (like a healing spell) or negative (like a damaging sword swing).
 
-The class’s should each have a default constructor that initializes all their member variables to appropriate values, and optionally accepts a string for setting the object’s name variable as soon as they are created.
+<strike>The class’s should each have a default constructor that initializes all their member variables to appropriate values, and optionally accepts a string for setting the object’s name variable as soon as they are created.</strike>
 
 Remember that a class is a blueprint for any object of that type, not a single specific object. If you have a character named Jim, you wouldn’t make a class called Jim or a class member variable called Jim, just a generic ‘character’ class with a generic ‘name’ string, and you would make an instance like Character jim; jim.SetName(“Jim”);.	25%
 		
