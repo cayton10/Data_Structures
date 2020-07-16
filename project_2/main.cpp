@@ -68,19 +68,22 @@ class Character
             //Qualify input for health
             while(num < 0 || num > 100)
             {
+                //Update prompt
                 cout << "Invalid health value.\nPlease enter a value between 0 and 100: ";
                 cin >> num;
+                //If invalid data type...
                 if (cin.fail())
                 {
+                    //Fix it
                     cout << "We've been through this. Numbers only: ";
                     cin.clear();//Clear input stream
                     cin.ignore(100, '\n');
                     cin >> num;
-                }
-                
+                }   
             }
-
+            //If control flow conditions are met, set appropriate value
             health = num;
+            //Exit function
             return;
         }
     //Get Character health
@@ -91,6 +94,22 @@ class Character
     //Set character power
         void setPower(int num)
         {
+            //Qualify input for health
+            while(num < 50 || num > 500)
+            {
+                //Update prompt
+                cout << "Invalid power value.\nPlease enter a value between 50 and 500: ";
+                cin >> num;
+                //If invalid data type...
+                if (cin.fail())
+                {
+                    //Fix it
+                    cout << "We've been through this. Numbers only: ";
+                    cin.clear();//Clear input stream
+                    cin.ignore(100, '\n');
+                    cin >> num;
+                }   
+            }
             power = num;
         }
     //Get character power
@@ -164,6 +183,8 @@ int main()
     //Name placeholder for entry.
     string newName;
     int health;
+    int power;
+    int strength;
     //Instantiating object calls default Character constructor
     Character sprinter;
     Character climber;
@@ -181,19 +202,43 @@ int main()
     cout << "\nEnter sprinter health (whole number between 0 and 100): ";
     cin >> health;
     //Control flow for input of invalid data type
-    do
-    {
-        cout << "\nInvalid health entry. Please try again: ";
-        cin.clear();//Clear input stream
-        cin.ignore(100, '\n');//Ignore junk line / new line character
-        cin >> health;//Accept input again
-    }while(cin.fail());
+    if(cin.fail())
+    { 
+        do
+        {
+            cout << "\nInvalid health entry. Please try again: ";
+            cin.clear();//Clear input stream
+            cin.ignore(100, '\n');//Ignore junk line / new line character
+            cin >> health;//Accept input again
+        }while(cin.fail());
+    }
 
     //Set health of sprinter instance of character class
     sprinter.setHealth(health);
+
+
+    //Prompt user to enter health for sprinter racer
+    cout << "\nEnter sprinter power in Watts (whole number between 50 and 500): ";
+    cin >> power;
+    //Control flow for input of invalid data type
+    if(cin.fail())
+    {
+        do
+        {
+            cout << "\nInvalid power entry. Please try again: ";
+            cin.clear();//Clear input stream
+            cin.ignore(100, '\n');//Ignore junk line / new line character
+            cin >> power;//Accept input again
+        }while(cin.fail());
+    }
+
+    //Set power of sprinter instance of character class
+    sprinter.setPower(power);
+
     //Output single values for inspection
     cout << "Sprinter name: " << sprinter.getName() << endl;
     cout << "Sprinter health: " << sprinter.getHealth() << endl;
+    cout << "Sprinter power: " << sprinter.getPower() << endl;
 
 
 
