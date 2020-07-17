@@ -35,6 +35,17 @@ class Character
             power = 350;
             strength = 88;
         }
+
+    /** ************************************ wipeChar() ****************************************
+     * function wipes values of default constructed character class to prep for user input ****
+     * ****************************************************************************************/
+        void wipeChar()
+        {
+            name = "";
+            health = 0;
+            power = 0;
+            strength = 0;
+        }
     /** ************************************* setName() ****************************************
     //Set character name */
         void setName(string str)
@@ -67,25 +78,16 @@ class Character
     /** ************************************* setHealth() ****************************************
     //Set character health */
         void setHealth(int num)
-        {
-            //Qualify input for health
-            while(num < 0 || num > 100)
-            {
-                //Update prompt
-                cout << "Invalid health value.\nPlease enter a value between 0 and 100: ";
-                cin >> num;
-                //If invalid data type...
-                if (cin.fail())
-                {
-                    //Fix it
-                    cout << "We've been through this. Numbers only: ";
-                    cin.clear();//Clear input stream
-                    cin.ignore(100, '\n');
-                    cin >> num;
-                }   
+        {   //Set health 
+            health += num;
+            if(health < 0)
+            {    
+                health = 0;
             }
-            //If control flow conditions are met, set appropriate value
-            health = num;
+            else if(health > 100)
+            {
+                health = 100;
+            }
             //Exit function
             return;
         }
@@ -100,24 +102,19 @@ class Character
     //Set character power*/
         void setPower(int num)
         {
-            //Qualify input for power
-            while(num < 50 || num > 500)
+            //Upadate power
+            power += num;
+
+            //Qualify updated values
+            if(power < 50)
             {
-                //Update prompt
-                cout << "Invalid power value.\nPlease enter a value between 50 and 500: ";
-                cin >> num;
-                //If invalid data type...
-                if (cin.fail())
-                {
-                    //Fix it
-                    cout << "We've been through this. Numbers only: ";
-                    cin.clear();//Clear input stream
-                    cin.ignore(100, '\n');
-                    cin >> num;
-                }   
+                power = 50;
             }
-            //If it checks out:
-            power = num;
+            else if(power > 500)
+            {
+                power = 500;
+            }
+            return;
         }
 
     //Get character power
@@ -125,28 +122,23 @@ class Character
         {
             return power;
         }
+
     /** ************************************* setStrength() ****************************************
     //Set character strength */
         void setStrength(int num)
         {
-            //Qualify input for strength
-            while(num < 0 || num > 100)
-            {
-                //Update prompt
-                cout << "Invalid strength value.\nPlease enter a value between 0 and 100: ";
-                cin >> num;
-
-                if (cin.fail())
-                {
-                    //Fix it
-                    cout << "We've been through this. Numbers only: ";
-                    cin.clear();
-                    cin.ignore(100, '\n');
-                    cin >> num;
-                }
-            }
             //If everything checks out:
             strength = num;
+
+            if(strength < 0)
+            {
+                strength = 0;
+            }
+            else if(strength > 100)
+            {
+                strength = 100;
+            }
+            return;
         }
     //Get character strength
         int getStrength()
@@ -155,7 +147,7 @@ class Character
         }
 };
 
-
+/********************************************************************************************/
 /**************************************ABILITY CLASS*****************************************/
 //Ability class
 class Ability
@@ -207,6 +199,10 @@ class Ability
         }
 };
 
+/***********************************************************************************************
+ * ********************************MAIN FUNCTION************************************************
+ * Let's race some bikes!**********************************************************************/
+
 int main()
 {
     //Name placeholder for entry.
@@ -233,8 +229,10 @@ int main()
 
     //Control flow for userChoice
 
-    if(userChoice == 1)//Else prompt user to enter information for sprinter instance of character class
+    if(userChoice == 1)//If user wants to name their sprinter character and provide attributes
     {
+        //Call wipeChar() function to prep class for user input
+        sprinter.wipeChar();   
         //Prompt user to enter name for sprinter racer
         cout << "\nEnter sprinter name: ";
         cin.clear();//Clear input buffer stream
@@ -247,7 +245,7 @@ int main()
         cout << "\nEnter sprinter health (whole number between 0 and 100): ";
         cin >> health;
         //Control flow for input of invalid data type
-        if(cin.fail())
+        if(cin.fail() || health < 0 || health > 100)
         { 
             do
             {
@@ -255,7 +253,7 @@ int main()
                 cin.clear();//Clear input stream
                 cin.ignore(100, '\n');//Ignore junk line / new line character
                 cin >> health;//Accept input again
-            }while(cin.fail());
+            }while(cin.fail() || health < 0 || health > 100);
         }
 
         //Set health of sprinter instance of character class
@@ -266,7 +264,7 @@ int main()
         cout << "\nEnter sprinter power in Watts (whole number between 50 and 500): ";
         cin >> power;
         //Control flow for input of invalid data type
-        if(cin.fail())
+        if(cin.fail() || power < 50 || power > 500)
         {
             do
             {
@@ -274,7 +272,7 @@ int main()
                 cin.clear();//Clear input stream
                 cin.ignore(100, '\n');//Ignore junk line / new line character
                 cin >> power;//Accept input again
-            }while(cin.fail());
+            }while(cin.fail() || power < 50 || power > 500);
         }
 
         //Set power of sprinter instance of character class
