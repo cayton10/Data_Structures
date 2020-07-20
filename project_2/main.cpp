@@ -2,9 +2,10 @@
  *  Course: CIT 236 - Data Structures
  *  Assignment: Project 2
  * *****************************************************************
- *  Description: Assignment 1 for this course serves to review concepts previously covered
- *  in CIT 163 - Intro to Programming. The objective is to create functions requested
- *  by the assignment outline provided.
+ *  Description: Assignment 2 for this course serves expand on the concepts
+ *  of classes and objects. This is a rudimentary gaming style exercise in which
+ *  class objects or instances are created with various functions assigned to test
+ *  their legitimacy within a working program. 
  */
 
 #include <iostream>
@@ -14,6 +15,67 @@
 using namespace std;
 
 //Define classes
+
+/********************************************************************************************/
+/**************************************ABILITY CLASS*****************************************/
+//Ability class
+class Ability
+{
+    //Can't Touch This
+    private:
+        string name;
+        int powerCost;
+        int healthEffect;
+    
+    //Public functions for ability class
+    public:
+        //Default ability constructor
+        Ability(string abilityName = "Suffering")
+        {
+            name = abilityName;
+            powerCost = 20;
+            healthEffect = -15;
+        }
+        //Set ability name
+        void setName(string str)
+        {
+            name = str;
+        }
+        //Get ability name
+        string getName()
+        {
+            return name;
+        }
+        //Set ability powerCost
+        void setPowerCost(int num)
+        {
+            powerCost = num;
+        }
+        //Get ability powerCost
+        int getPowerCost()
+        {
+            return powerCost;
+        }
+        //Set ability healthEffect
+        void setHealthEffect(int num)
+        {
+            healthEffect = num;
+        }
+        //Get ability healthEffect
+        int getHealthEffect()
+        {
+            return healthEffect;
+        }
+
+        //Display ability name and attributes
+        void displayAbility()
+        {
+            cout << name << endl;
+            cout << powerCost << endl;
+            cout << healthEffect << endl;
+        }
+};
+
 /**************************************CHARACTER CLASS*****************************************/
 //Character class
 class Character
@@ -21,31 +83,21 @@ class Character
     //Private variables "Can't Touch This..."
     private: 
         string name;
-        string ability; 
+        Ability characterAbility;
         int health;
         int power;
         int strength;
     //CAN Touch These
     public:
     //Default character constructor
-        Character()
+        Character(string newName = "Andre Greipel")
         {
-            name = "Andre Greipel";
-            health = 93;
-            power = 350;
-            strength = 88;
+            name = newName;
+            health = 88;
+            power = 470;
+            strength = 95;
         }
 
-    /** ************************************ wipeChar() ****************************************
-     * function wipes values of default constructed character class to prep for user input ****
-     * ****************************************************************************************/
-        void wipeChar()
-        {
-            name = "";
-            health = 0;
-            power = 0;
-            strength = 0;
-        }
     /** ************************************* setName() ****************************************
     //Set character name */
         void setName(string str)
@@ -145,58 +197,46 @@ class Character
         {
             return strength;
         }
-};
 
-/********************************************************************************************/
-/**************************************ABILITY CLASS*****************************************/
-//Ability class
-class Ability
-{
-    //Can't Touch This
-    private:
-        string name;
-        int powerCost;
-        int healthEffect;
-    
-    //Public functions
-    public:
-        //Default ability constructor
-        Ability()
+    /*********************************  setAbility()*****************************************
+    ** FUNCTION OVERLOAD TAKES ABILITY CLASS NAME AND COPIES VALUES INTO CHARACTER'S ABILITY
+    ** MEMBER VARIABLE **********************************************************************/
+
+        void setAbility(Ability name)
         {
-            name = "Suffering";
-            powerCost = 20;
-            healthEffect = -15;
+           characterAbility.setName(name.getName());//Sets characterAbility with Ability instance name
+           characterAbility.setHealthEffect(name.getHealthEffect());//Sets characterAbility with Ability instance
+                                                                    //healthEffect value
+           characterAbility.setPowerCost(name.getPowerCost());//Sets characterAbility with Ability instance powerCost
+                                                              //value
         }
-        //Set ability name
-        void setName(string str)
+
+    /********************************* OVERLOAD 2 *****************************************/
+
+        void setAbility(string name, int powerCost, int healthEffect)
         {
-            name = str;
+            //Set name of character ability
+            characterAbility.setName(name);//Set ability name
+            characterAbility.setPowerCost(powerCost);//Set ability powerCost
+            characterAbility.setHealthEffect(healthEffect);//Set ability healthEffect
         }
-        //Get ability name
-        string getName()
+    /******************************* END setAbility() **************************************/
+
+    /******************************* displayFunction ***************************************/
+
+        void displayAll()
         {
-            return name;
+            //Outputs all pertinent character information
+            cout << "Character name: " << getName() << endl;
+            cout << "Character health: " << getHealth() << endl;
+            cout << "Character strength: " << getStrength() << endl;
+            cout << "Character power: " << getPower() << endl << endl;
+
+            cout << "Character's Ability Information: " << endl;
+            //Call displayAbility function from Ability class
+            characterAbility.displayAbility();
         }
-        //Set ability powerCost
-        void setPowerCost(int num)
-        {
-            powerCost = num;
-        }
-        //Get ability powerCost
-        int getPowerCost()
-        {
-            return powerCost;
-        }
-        //Set ability healthEffect
-        void setHealthEffect(int num)
-        {
-            healthEffect = num;
-        }
-        //Get ability healthEffect
-        int getHealthEffect()
-        {
-            return healthEffect;
-        }
+
 };
 
 /***********************************************************************************************
@@ -205,19 +245,16 @@ class Ability
 
 int main()
 {
-    //Name placeholder for entry.
+    //Declare all required variables
     string newName;
     int userChoice;
-    int health;
-    int power;
-    int strength;
-    //Instantiating object calls default Character constructor w/ option
-    Character sprinter;
-    
 
-    //Allow user to change default sprinter information
+
+    
+    //Allow user to change default sprinter information with menu option
     cout << "\nWould you like to name your sprinter?\n\nEnter 1 to enter name:\nEnter 2 for default:\n";
     cin >> userChoice;
+    //Qualifies user input
     if(cin.fail() || userChoice < 1 || userChoice > 2)
     {
         do
@@ -228,99 +265,62 @@ int main()
     }
 
     //Control flow for userChoice
-
     if(userChoice == 1)//If user wants to name their sprinter character and provide attributes
-    {
-        //Call wipeChar() function to prep class for user input
-        sprinter.wipeChar();   
+    {   
         //Prompt user to enter name for sprinter racer
         cout << "\nEnter sprinter name: ";
         cin.clear();//Clear input buffer stream
         cin.ignore(100, '\n');//Ignore newline character(return)
         getline(cin, newName);
         //Set name of sprinter instance of character class
-        sprinter.setName(newName); 
+        Character sprinter(newName);
 
-        //Prompt user to enter health for sprinter racer
-        cout << "\nEnter sprinter health (whole number between 0 and 100): ";
-        cin >> health;
-        //Control flow for input of invalid data type
-        if(cin.fail() || health < 0 || health > 100)
-        { 
-            do
-            {
-                cout << "\nInvalid health entry. Please try again: ";
-                cin.clear();//Clear input stream
-                cin.ignore(100, '\n');//Ignore junk line / new line character
-                cin >> health;//Accept input again
-            }while(cin.fail() || health < 0 || health > 100);
-        }
+        //Create instance of sprinter's ability. Overload 1
+        Ability sprintAbility("Sprint Finish");
+        sprintAbility.setHealthEffect(50);
+        sprintAbility.setPowerCost(100);
+        //Call sprinter.setAbility() function overload option 1
+        sprinter.setAbility(sprintAbility);//Copies sprintAbility into sprinter's ability
 
-        //Set health of sprinter instance of character class
-        sprinter.setHealth(health);
+        //Call function to display all character information + their ability info
+        sprinter.displayAll();
+        
+    }
+    else
+    {
+        //Create Character of sprinter instance with default member variable values
+        Character sprinter;
+
+        //Create instance of sprinter's ability. Overload 1
+        Ability sprintAbility("Sprint Finish");
+        sprintAbility.setHealthEffect(-30);
+        sprintAbility.setPowerCost(320);
+
+        //Call sprinter.setAbility() function overload option 1
+        sprinter.setAbility(sprintAbility);//Copies sprintAbility into sprinter's ability
 
 
-        //Prompt user to enter power for sprinter racer
-        cout << "\nEnter sprinter power in Watts (whole number between 50 and 500): ";
-        cin >> power;
-        //Control flow for input of invalid data type
-        if(cin.fail() || power < 50 || power > 500)
-        {
-            do
-            {
-                cout << "\nInvalid power entry. Please try again: ";
-                cin.clear();//Clear input stream
-                cin.ignore(100, '\n');//Ignore junk line / new line character
-                cin >> power;//Accept input again
-            }while(cin.fail() || power < 50 || power > 500);
-        }
-
-        //Set power of sprinter instance of character class
-        sprinter.setPower(power);
-
-        //Prompt user to enter strength for sprinter racer
-        cout << "\nEnter sprinter power strength (whole numbers between 0 and 100): ";
-        cin >> strength;
-        //control flow for input of invalid data type
-        if(cin.fail() || strength < 0 || strength > 100)
-        {
-            do
-            {
-                cout << "\nInvalid power entry. Please try again: ";
-                cin.clear();
-                cin.ignore(100, '\n');//Ignore junk line
-                cin >> strength;//Accept input again
-            } while (cin.fail() || strength < 0 || strength > 100);   
-        }
-
-        //If entry checks out, call setStrength
-        sprinter.setStrength(strength);
+        //Call function to display all character information + their ability info
+        sprinter.displayAll();  
+    
     }
     
+
     
     //Climber instance of character class will be sprinter's rival
-    Character climber;
+    Character climber("Chris Froome");
     //Hard coding climber character class member attributes
     climber.setName("Chris Froome");
-    climber.setHealth(75);
-    climber.setPower(400);
-    climber.setStrength(70);
+    climber.setHealth(99);
+    climber.setPower(450);
+    climber.setStrength(57);
+
+    //Create instance of climber's ability. Overload 2
+    climber.setAbility("Pedal Dance", -50, 140);
+
+    //Call function to display all character information + their ability info
+    climber.displayAll();
     
-
-
-    //Output single values for inspection
-    cout << "\nSprinter name: " << sprinter.getName() << endl;
-    cout << "Sprinter health: " << sprinter.getHealth() << endl;
-    cout << "Sprinter power: " << sprinter.getPower() << endl;
-    cout << "Sprinter strength: " << sprinter.getStrength() << endl;
-
-    cout << endl << "\nClimber name: " << climber.getName() << endl;
-    cout << "Climber health: " << climber.getHealth() << endl;
-    cout << "Climber power: " << climber.getPower() << endl;
-    cout << "Climber strength: " << climber.getStrength() << endl;
-
-
-
 
     return 0;
 }
