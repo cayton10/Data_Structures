@@ -1,5 +1,11 @@
 # Project 2
 
+## Learning Outcomes
+
+This was a very helpful exercise in familiarizing myself with classes and objects. I added a small user input feature so the user can rename their sprinter character to personalize, somewhat. Had I just followed the flat syllabus directions, I could have finished this much quicker, but I kept trying to find ways to personalize the project. 
+
+Creation of the public functions and altering private variables was very helpful. I'm looking forward to becoming more fluent and skilled with OOP and OOD methodologies.
+
 ## From Syllabus
 
 Assignment 2 – Classes and Objects
@@ -31,7 +37,7 @@ dragon.SetAbility(“Fire Breath”, -10, 10);//Sets dragon’s ability with the
 
 <strike>Create instances of both in main() to demonstrate your classes work properly. For this assignment you do not have to use user input to let the user enter the values; just hardcode the names and abilities (have fun with it) to show your class working.</strike>	20%
 		
-4.	Finally, add a function to the Character class called UseAbility. It should take 1 parameter of the Character type and apply the current character’s ability (the one calling the function) on the character passed into the function. 
+4.	<strike>Finally, add a function to the Character class called UseAbility. It should take 1 parameter of the Character type and apply the current character’s ability (the one calling the function) on the character passed into the function.</strike> 
 
 EXAMPLE:
 
@@ -45,5 +51,5 @@ vampireCharacter.Display();//should show lower health.
 
 would result in vampireCharacter losing 5 health and character losing 5 power. Include some console output so it says something ‘Fireball cast on Modern Sexy Vampire. Modern Sexy Vampire’s stats are now: (and then call the Display function for the character)’. (Hint: This step won’t work without one particular concept I asked you to review on assignment 1...)	30%
 
-//Must pass by ref ^^^
+
 

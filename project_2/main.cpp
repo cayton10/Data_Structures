@@ -70,9 +70,9 @@ class Ability
         //Display ability name and attributes
         void displayAbility()
         {
-            cout << name << endl;
-            cout << powerCost << endl;
-            cout << healthEffect << endl;
+            cout << "Ability name: " << name << endl;
+            cout << "Ability power cost: " << powerCost << endl;
+            cout << "Ability health effect: " << healthEffect << endl << endl;
         }
 };
 
@@ -129,7 +129,8 @@ class Character
         
     /** ************************************* setHealth() ****************************************
     //Set character health */
-        void setHealth(int num)
+    //Pass parameter by reference for updating character attributes after useAbility()
+        void setHealth(int const &num)
         {   //Set health 
             health += num;
             if(health < 0)
@@ -152,7 +153,9 @@ class Character
 
     /** ************************************* setPower() ****************************************
     //Set character power*/
-        void setPower(int num)
+    //Pass parameter by reference for updating character attributes after useAbility()
+
+        void setPower(int const &num)
         {
             //Upadate power
             power += num;
@@ -220,6 +223,12 @@ class Character
             characterAbility.setPowerCost(powerCost);//Set ability powerCost
             characterAbility.setHealthEffect(healthEffect);//Set ability healthEffect
         }
+
+        string getAbility()
+        {
+            name = characterAbility.getName();
+            return name;
+        }
     /******************************* END setAbility() **************************************/
 
     /******************************* displayFunction ***************************************/
@@ -232,9 +241,23 @@ class Character
             cout << "Character strength: " << getStrength() << endl;
             cout << "Character power: " << getPower() << endl << endl;
 
-            cout << "Character's Ability Information: " << endl;
+            cout << name << "'s Ability Information: " << endl;
             //Call displayAbility function from Ability class
             characterAbility.displayAbility();
+        }
+
+    /**************************** useAbility() ********************************************
+    **USES CHARACTER'S ABILITY. PERFORMS APPROPRIATE ARITHMETIC OPERATIONS ON CHARACTER 
+    **ATTRIBUTES BASED ON ABILITY VALUES.*/
+
+        void useAbility(Character &character)//Must pass character by reference, else health effects are overwritten
+                                             //upon exiting function
+        {
+            //Update power of character using ability
+            setPower(characterAbility.getPowerCost());
+            //Update health of character ability is used on (parameter character)
+            character.setHealth(characterAbility.getHealthEffect());
+            
         }
 
 };
@@ -259,10 +282,16 @@ int main()
     {
         do
         {
-            cout << "Please enter a valid choice.\n1. Enter name:\n2. Accept default:\n ";
-        } while (cin.fail() || userChoice != 1 || userChoice != 2);
+            cin.clear();//Clear input buffer stream
+            cin.ignore(100, '\n');//Ignore CR 
+            cout << "Please enter a valid choice.\n1. Enter name:\n2. Accept default:\n";
+            cin >> userChoice;
+        } while (cin.fail() || userChoice < 1 || userChoice > 2);
         
     }
+
+    //Create Character of sprinter instance with default member variable values
+    Character sprinter;
 
     //Control flow for userChoice
     if(userChoice == 1)//If user wants to name their sprinter character and provide attributes
@@ -273,41 +302,23 @@ int main()
         cin.ignore(100, '\n');//Ignore newline character(return)
         getline(cin, newName);
         //Set name of sprinter instance of character class
-        Character sprinter(newName);
-
-        //Create instance of sprinter's ability. Overload 1
-        Ability sprintAbility("Sprint Finish");
-        sprintAbility.setHealthEffect(50);
-        sprintAbility.setPowerCost(100);
-        //Call sprinter.setAbility() function overload option 1
-        sprinter.setAbility(sprintAbility);//Copies sprintAbility into sprinter's ability
-
-        //Call function to display all character information + their ability info
-        sprinter.displayAll();
+        sprinter.setName(newName);
+    }
         
-    }
-    else
-    {
-        //Create Character of sprinter instance with default member variable values
-        Character sprinter;
+    //Create instance of sprinter's ability. Overload 1
+    Ability sprintAbility("Sprint Finish");
+    sprintAbility.setHealthEffect(-30);
+    sprintAbility.setPowerCost(-320);
 
-        //Create instance of sprinter's ability. Overload 1
-        Ability sprintAbility("Sprint Finish");
-        sprintAbility.setHealthEffect(-30);
-        sprintAbility.setPowerCost(320);
-
-        //Call sprinter.setAbility() function overload option 1
-        sprinter.setAbility(sprintAbility);//Copies sprintAbility into sprinter's ability
-
-
-        //Call function to display all character information + their ability info
-        sprinter.displayAll();  
-    
-    }
-    
+    //Call sprinter.setAbility() function overload option 1
+    sprinter.setAbility(sprintAbility);//Copies sprintAbility into sprinter's ability
 
     
-    //Climber instance of character class will be sprinter's rival
+    //Call function to display all character information + their ability info
+    sprinter.displayAll();
+    cout << endl << endl;
+
+        //Climber instance of character class will be sprinter's rival
     Character climber("Chris Froome");
     //Hard coding climber character class member attributes
     climber.setName("Chris Froome");
@@ -316,11 +327,37 @@ int main()
     climber.setStrength(57);
 
     //Create instance of climber's ability. Overload 2
-    climber.setAbility("Pedal Dance", -50, 140);
+    climber.setAbility("Pedal Dance", -140, -50);
 
-    //Call function to display all character information + their ability info
+    //Display stats before ability usage
+    cout << endl << endl;
+    sprinter.displayAll();
+    cout << endl;
+    //Call function to display all climber information + their ability info
     climber.displayAll();
+    cout << endl << endl;
+
+
+    //Role play text
+    cout << sprinter.getName() << " uses " << sprintAbility.getName() << " against " << climber.getName() << endl;
+    //Call useAbility
+    sprinter.useAbility(climber);
+    //Role play text
+    cout << sprinter.getName() << " inflicts " << (sprintAbility.getHealthEffect() * -1) 
+         << " damage points to " << climber.getName() << endl << endl;
     
+    
+    cout << climber.getName() << " recovers and launches a counter attack!!!\n";
+    cout << climber.getName() << " uses " << climber.getAbility() << " against " << sprinter.getName() << endl;
+    //Reverse character ability usage and report results
+    climber.useAbility(sprinter);
+    
+    //Display results of each character ability usage
+    cout << "Final results: \n\n";
+    sprinter.displayAll();
+    cout << endl << endl;
+    climber.displayAll();
+        
 
     return 0;
 }
