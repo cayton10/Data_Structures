@@ -349,7 +349,7 @@ int main()
     
     cout << climber.getName() << " recovers and launches a counter attack!!!\n";
     cout << climber.getName() << " uses " << climber.getAbility() << " against " << sprinter.getName() << endl;
-    //Reverse character ability usage and report results
+    //Call climber useAbility and pass sprinter for health effect
     climber.useAbility(sprinter);
     
     //Display results of each character ability usage
