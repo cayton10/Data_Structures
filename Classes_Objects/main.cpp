@@ -52,7 +52,7 @@ class Ability
             powerCost = num;
         }
         //Get ability powerCost
-        int getPowerCost()
+        int getPowerCost() const
         {
             return powerCost;
         }
@@ -62,7 +62,7 @@ class Ability
             healthEffect = num;
         }
         //Get ability healthEffect
-        int getHealthEffect()
+        int getHealthEffect() const
         {
             return healthEffect;
         }
@@ -122,7 +122,7 @@ class Character
         }
 
     //Get character name
-        string getName()
+        string getName() const
         {
             return name;
         }
@@ -146,7 +146,7 @@ class Character
         }
 
     //Get Character health
-        int getHealth()
+        int getHealth() const
         {
             return health;
         }
@@ -173,7 +173,7 @@ class Character
         }
 
     //Get character power
-        int getPower()
+        int getPower() const
         {
             return power;
         }
@@ -196,7 +196,7 @@ class Character
             return;
         }
     //Get character strength
-        int getStrength()
+        int getStrength() const
         {
             return strength;
         }
@@ -224,7 +224,7 @@ class Character
             characterAbility.setHealthEffect(healthEffect);//Set ability healthEffect
         }
 
-        string getAbility()
+        string getAbility()//Can't set this function as const
         {
             name = characterAbility.getName();
             return name;
