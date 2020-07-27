@@ -1,5 +1,5 @@
-# Ignore machine code generated from main function
-main
+# Ignore files without extensions (machine code and workspace)
+*
 
 #Ignore .DSStore file structure dot file from MacOS
 
