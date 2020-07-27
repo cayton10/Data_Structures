@@ -1,0 +1,6 @@
+# Ignore machine code generated from main function
+main
+
+#Ignore .DSStore file structure dot file from MacOS
+
+.DSStore
