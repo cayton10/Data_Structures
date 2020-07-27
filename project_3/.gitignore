@@ -1,5 +1,7 @@
 # Ignore files without extensions (machine code and workspace)
 *
+!/**/
+!*.*
 
 #Ignore .DSStore file structure dot file from MacOS
 
