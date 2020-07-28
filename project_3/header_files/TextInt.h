@@ -1,27 +1,47 @@
 #pragma once//Include guard
 
+using namespace std;
+
 //Text to int class header file
 class TextInt
 {
+    //Private member variabels
     private:
         int number;
-    //Pass an integer into the function to return the text version
-    public:
+        string text;
 
-        //Default constructor
-        inline TextInt(int defaultNumber = 666)//Mark of the BEAST
-        {
-            number = defaultNumber;
-        };
+    //Public member variables    
+    public:
+        //Static string members for translation
+        static string thousand;
+        static string hundred;
+        static string tens[];
+        static string lessThanTwenty[];
+        static string lessThanTen[];
+
 
         //Sets value of TextInt 'number' member variable.
         void setNum(int num);
 
+        //Translates int value to equivalent text value.
+        void translateNum(int num);
+
+        /*************************INLINE FUNCTIONS*******************************/
+        //Default constructor
+        inline TextInt(int defaultNumber = 666)//INITIALIZE TO MARK OF THE BEAST
+        {
+            number = defaultNumber;
+        };
         //Returns object 'number' member variable value
         inline int getNum() const//set as constant function
         {
             return number;
         };
+        //Return object 'text' member variable value
+        inline string getText() const//set as constant function
+        {
+            return text;
+        }
 
 };
 

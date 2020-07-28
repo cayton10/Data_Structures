@@ -6,18 +6,18 @@ Submit to MUOnline as a compressed (.zip) file containing your code project.
 
 a.	The TextInt class should have its own .h and .cpp files. At least the translate function should be implemented in the .cpp file. The rest can be inline functions.
 
-b.	A TextInt should have a private member variable number of type int.
+b.	<strike>A TextInt should have a private member variable number of type int.</strike>
 
-c.	The TextInt class should have static string members to help translate integers to text. For example, to represent the unique words for translating, you would use:
+c.	<strike>The TextInt class should have static string members to help translate integers to text. For example, to represent the unique words for translating, you would use:
 
 static string lessThan20[] = {“zero”, “one”, …, “eighteen”, “nineteen”};
 
 static string tens[] = {“twenty”, “thirty”, …
 static string hundred = “Hundred”;
 
-Any number can be translated using a combination of these, such as 1234 = 1000 + 200 + 30 + 4 = one thousand two hundred thirty four.
+Any number can be translated using a combination of these, such as 1234 = 1000 + 200 + 30 + 4 = one thousand two hundred thirty four.</strike>
 
-d.	The class should have a default constructor with one parameter that initializes the value of the member variable number. Note that the parameter must have a default value to make it a default constructor. It should have public methods (member functions) to return the integer and text versions of number, and to change the value of number. (Hint: ‘Stub’ or ‘Block’ out your code first – that means make an empty class structure first, then code the smaller functions, make sure it’s all working, then do the hard translation function last. For the translation, get thousands working first, then hundreds, then tens, then 1-19. Test as you go.)
+d.	<strike>The class should have a default constructor with one parameter that initializes the value of the member variable number. Note that the parameter must have a default value to make it a default constructor. It should have public methods (member functions) to return the integer and text versions of number, and to change the value of number. (Hint: ‘Stub’ or ‘Block’ out your code first – that means make an empty class structure first, then code the smaller functions, make sure it’s all working, then do the hard translation function last. For the translation, get thousands working first, then hundreds, then tens, then 1-19. Test as you go.)</strike>
 
 ↓  2nd Page  ↓
 
