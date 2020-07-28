@@ -2,9 +2,9 @@
 
 Submit to MUOnline as a compressed (.zip) file containing your code project.
 
-1.	(Ch. 10: Classes) Create a class called TextInt. The purpose of a TextInt is to store an integer and convert it to the English text form of the integer when needed, such as ‘zero’ for 0, ‘one’ for 1, and so on, up to ‘nine thousand nine hundred ninety nine’ for 9999. You do NOT need punctuation (commas, hyphens, ‘and’, etc.) 
+1.	<strike>(Ch. 10: Classes) Create a class called TextInt. The purpose of a TextInt is to store an integer and convert it to the English text form of the integer when needed, such as ‘zero’ for 0, ‘one’ for 1, and so on, up to ‘nine thousand nine hundred ninety nine’ for 9999. You do NOT need punctuation (commas, hyphens, ‘and’, etc.)</strike> 
 
-a.	The TextInt class should have its own .h and .cpp files. At least the translate function should be implemented in the .cpp file. The rest can be inline functions.
+a.	<strike>The TextInt class should have its own .h and .cpp files. At least the translate function should be implemented in the .cpp file. The rest can be inline functions.</strike>
 
 b.	<strike>A TextInt should have a private member variable number of type int.</strike>
 
