@@ -7,8 +7,6 @@
 
 using namespace std; //For std::*
 
-
-
 int main()
 {
     //Declare user input variables
@@ -34,7 +32,6 @@ int main()
     //Print value to test
     cout << "Your first integer: " << object1.getNum() << endl << endl;
 
-    cout << object1.getNum() << endl;
     cout << object1.getText() << endl;
 
     cout << "Enter a second integer, also between 0 and 9,999: ";
@@ -58,6 +55,11 @@ int main()
     cout << "Your second integer: " << object2.getNum() << endl << endl;
 
     cout << object2.getText() << endl;
+
+    //Create TextInt object3 by using addition operator overload
+    TextInt object3 = object1 + object2;
+
+    cout << object3.getNum() << ": " << object3.getText() << endl;
 
 
 

@@ -7,13 +7,31 @@ using namespace std;
 //TextInt implementation file contains function definitions
 
 //Initialize static string members
-string TextInt::thousand = "Thousand";
-string TextInt::hundred = "Hundred";
-string TextInt::tens[] = {"Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-string TextInt::lessThanTwenty[] = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
+const string TextInt::thousand = "Thousand";
+const string TextInt::hundred = "Hundred";
+const string TextInt::tens[] = {"Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+const string TextInt::lessThanTwenty[] = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
                                      "Seventeen", "Eighteen", "Nineteen"};
-string TextInt::lessThanTen[] = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
+const string TextInt::lessThanTen[] = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
                                 "Eight", "Nine"};
+
+/***********************DEFAULT CONSTRUCTOR********************/
+TextInt::TextInt(int defaultNumber = 666)
+{
+    number = defaultNumber;
+            //Set control flow for clamping values after operator overloads
+            //Creating new object w/ operator overloads results in calling default
+            //Constructor. That's why conditions are here
+    if(number > 9999)
+    {
+        number = 9999;
+    } else if (number < 0)
+    {
+        number = 0;
+    }
+    //Call setNum() function to set number and string member variables
+    setNum(number);
+};
 
 //Could have made this an inline function, but... practice, ya know?
 void TextInt::setNum(int num)
