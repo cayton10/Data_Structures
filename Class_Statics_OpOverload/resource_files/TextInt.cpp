@@ -15,8 +15,15 @@ const string TextInt::lessThanTwenty[] = {"Ten", "Eleven", "Twelve", "Thirteen",
 const string TextInt::lessThanTen[] = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
                                 "Eight", "Nine"};
 
+//Stream insertion operator overload
+ostream& operator<<(ostream& output, TextInt& object)
+{
+    output << object.getNum() << ": " << object.getText();
+    return output;
+};
+
 /***********************DEFAULT CONSTRUCTOR********************/
-TextInt::TextInt(int defaultNumber = 666)
+TextInt::TextInt(int defaultNumber)
 {
     number = defaultNumber;
             //Set control flow for clamping values after operator overloads

@@ -7,6 +7,8 @@
 
 using namespace std; //For std::*
 
+
+
 int main()
 {
     //Declare user input variables
@@ -21,7 +23,7 @@ int main()
     {
         do
         {
-            cout << "Invalid input, please enter an integer between 0 and 9,999: ";
+            cout << "Invalid input, please enter an INTEGER between 0 and 9,999: ";
             cin.clear();//Clear input buffer stream
             cin.ignore(100, '\n');//Ignore 100 characters or newline, whichever is first
             cin >> userNum; //Try again
@@ -42,7 +44,7 @@ int main()
     {
         do
         {
-            cout << "Invalid input, please enter a INTEGER between 0 and 9,999: ";
+            cout << "Invalid input, please enter an INTEGER between 0 and 9,999: ";
             cin.clear();//Clear input buffer stream
             cin.ignore(100, '\n');//Ignore 100 characters or newline, whichever is first
             cin >> userNum; //Try again
@@ -61,8 +63,28 @@ int main()
 
     cout << object3.getNum() << ": " << object3.getText() << endl;
 
+    TextInt object4 = object3 / object1;
+
+    cout << object4 << endl;
+    
+    //Testing stream operator overload
+    cout << object1 << endl;
 
 
+    //Testing comparison operators
+    if(object1 > object2)
+    {
+        cout << "Instance one of TextInt is greater than instance two of TextInt.";
+    }
+    else if (object1 == object2)
+    {
+        cout << "Instance one of TextInt is equal to instance two of TextInt.";
+    }
+    else
+    {
+        cout << "Instance one of TextInt is less than instance two of TextInt";
+    }
+    
     return 0;
 }
 

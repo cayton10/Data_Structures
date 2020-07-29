@@ -33,11 +33,11 @@ Should output:
 fifty five
 720: seven hundred twenty	60%
 		
-2.	(Ch. 13 Operator Overloading) Overload the following operators so that TextInt can work just like a normal int in code:
+<strike>2.	(Ch. 13 Operator Overloading) Overload the following operators so that TextInt can work just like a normal int in code:
 +, -, /, *, %, and <<.
-Note that the first 5 will be almost identical.	40%
+Note that the first 5 will be almost identical.	40%</strike>
 	
-For example, this code should work when you are done:
+<strike>For example, this code should work when you are done:
 
 TextInt textInt1(2458), textInt2(1278); 
 TextInt textInt3 = textInt1 + textInt2;
@@ -50,7 +50,7 @@ Should output:
 TextInt textInt1(2458), textInt2(1278); 
 if(textInt1 > textInt2)
 cout << textInt1 << “ is larger than “ 
-<< textInt2 << endl;
+<< textInt2 << endl;</strike>
 
 
 	10% Extra

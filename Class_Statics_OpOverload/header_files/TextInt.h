@@ -80,6 +80,44 @@ class TextInt
             return modulus;
         };
 
+
+        /*********************RELATIONAL OPERATOR OVERLOADS***********************/
+
+        //Greater than overload
+        bool operator>(const TextInt& comparison)const
+        {
+            return number > comparison.number;
+        };
+        
+        //Less than overload
+        bool operator<(const TextInt& comparison)const
+        {
+            return number < comparison.number;
+        };
+        
+        //Greater than or equal overload
+        bool operator>=(const TextInt& comparison)const
+        {
+            return number >= comparison.number;
+        };
+
+        //Less than or equal overload
+        bool operator<=(const TextInt& comparison)const
+        {
+            return number <= comparison.number;
+        };
+
+        //Equality overlad
+        bool operator==(const TextInt& comparison)const
+        {
+            return number == comparison.number;
+        };
+
+        bool operator!=(const TextInt& comparison)const
+        {
+            return number != comparison.number;
+        };
+        
 };
 
 
