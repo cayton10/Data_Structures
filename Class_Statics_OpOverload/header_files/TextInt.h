@@ -5,6 +5,21 @@ using namespace std;
 //Text to int class header file
 class TextInt
 {
+    public:
+        /************************OPERATOR OVERLOADS****************************/
+        /********************ARITHMETIC OPERATOR OVERLOADS*********************/
+        /***************************PROTOTYPES*********************************/
+        //Addition overload
+        TextInt operator+(const TextInt &addedValue) const;
+        //Subtraction overload
+        TextInt operator-(const TextInt &subtractedValue) const;
+        //Multiplication overload
+        TextInt operator*(const TextInt &multipliedBy) const;
+        //Division overload
+        TextInt operator/(const TextInt &dividedBy) const;
+        //Modulus overload
+        TextInt operator%(const TextInt &modVal) const;
+
     //Private member variabels
     private:
         int number;
@@ -40,49 +55,9 @@ class TextInt
         {
             return text;
         }
-
-        /************************OPERATOR OVERLOADS****************************/
-        /********************ARITHMETIC OPERATOR OVERLOADS*********************/
-        /**********************************************************************/
         
-        //Addition overload
-        TextInt operator+(const TextInt &addedValue) const
-        {
-            TextInt addition(number + addedValue.number);
-            return addition;
-        };
-
-        //Subtraction overload
-        TextInt operator-(const TextInt &subtractedValue) const
-        {
-            TextInt subtraction(number - subtractedValue.number);
-            return subtraction;
-        };
-
-        //Multiplication overload
-        TextInt operator*(const TextInt &multipliedBy) const
-        {
-            TextInt multiply(number * multipliedBy.number);
-            return multiply;
-        };
-
-        //Division overload
-        TextInt operator/(const TextInt &dividedBy) const
-        {
-            TextInt divide(number / dividedBy.number);
-            return divide;
-        };
-
-        //Modulus overload
-        TextInt operator%(const TextInt &modVal) const
-        {
-            TextInt modulus(number % modVal.number);
-            return modulus;
-        };
-
-
         /*********************RELATIONAL OPERATOR OVERLOADS***********************/
-
+        //Must be non-member functions
         //Greater than overload
         bool operator>(const TextInt& comparison)const
         {

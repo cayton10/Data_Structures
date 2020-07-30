@@ -60,11 +60,11 @@ int main()
 
     //Create TextInt object3 by using addition operator overload
     TextInt object3 = object1 + object2;
-
+    //Test output of newly created object
     cout << object3.getNum() << ": " << object3.getText() << endl;
-
+    //Test division operator overload and create new object
     TextInt object4 = object3 / object1;
-
+    //Stream insertion overload test with new object
     cout << object4 << endl;
     
     //Testing stream operator overload

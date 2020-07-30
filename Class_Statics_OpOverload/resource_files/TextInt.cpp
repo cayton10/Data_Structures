@@ -1,6 +1,7 @@
 #pragma once//Include guard
 
 #include <string>
+#include <iostream>
 #include "../header_files/TextInt.h"
 
 using namespace std;
@@ -14,6 +15,42 @@ const string TextInt::lessThanTwenty[] = {"Ten", "Eleven", "Twelve", "Thirteen",
                                      "Seventeen", "Eighteen", "Nineteen"};
 const string TextInt::lessThanTen[] = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
                                 "Eight", "Nine"};
+
+//Arithmetic operator overload definitions
+//Addition overload
+TextInt TextInt::operator+(const TextInt &addedValue) const
+{
+    TextInt addition(number + addedValue.number);
+    return addition;
+};
+
+//Subtraction overload
+TextInt TextInt::operator-(const TextInt &subtractedValue) const
+{
+    TextInt subtraction(number - subtractedValue.number);
+    return subtraction;
+};
+
+//Multiplication overload
+TextInt TextInt::operator*(const TextInt &multipliedBy) const
+{
+    TextInt multiply(number * multipliedBy.number);
+    return multiply;
+};
+
+//Division overload
+TextInt TextInt::operator/(const TextInt &dividedBy) const
+{
+    TextInt divide(number / dividedBy.number);
+    return divide;
+};
+
+//Modulus overload
+TextInt TextInt::operator%(const TextInt &modVal) const
+{
+    TextInt modulus(number % modVal.number);
+    return modulus;
+};
 
 //Stream insertion operator overload
 ostream& operator<<(ostream& output, TextInt& object)
