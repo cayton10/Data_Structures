@@ -1,6 +1,9 @@
 
-
+#MacOS File Structur
 .DS_Store
 
 #Debug Symbols 
 *.dSYM/
+
+#Executables
+*.exe

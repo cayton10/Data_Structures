@@ -1,6 +1,5 @@
 #pragma once//Include guard
 
-using namespace std;
 
 //Text to int class header file
 class TextInt
