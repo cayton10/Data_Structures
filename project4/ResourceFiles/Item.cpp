@@ -6,7 +6,7 @@
 using namespace std;
 
 //Return message for use() function
-void Item::use(string name)
+void Item::use()
 {
     cout << "Using item " << name << endl;
 }

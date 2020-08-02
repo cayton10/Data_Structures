@@ -17,12 +17,13 @@ class Item
     //Declare public member functions
     public:
         //Item constructor
-        Item(string newName)
-        : name(newName),
-        number(1)
+        Item(int num = 1, string newName = "Unnamed Item")
         {
+            name = newName;
+            number = num;
             //Item is constructed using MIL
             //GO BACK AND REVIEW WHAT THIS IS CALLED IN "BASE CLASS CONSTRUCTORS, INHERITANCE" LECTURE
+            cout << "Called Item constructor" << endl;
         }
 
         //Set Item prototype
@@ -35,7 +36,7 @@ class Item
         }
 
         //Required virtual function
-        virtual void use(string name);
+        virtual void use();
 
 
 };

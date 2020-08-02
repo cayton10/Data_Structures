@@ -19,8 +19,10 @@ using namespace std;
 int main()
 {
     //Instance of Equipment object
-    Item sword("Claymore");
-    sword.getItem();
-    cout << "Hello world!";
+    Equipment sword("Claymore");
+
+    sword.use();
+
+    cout << "Hello world!" << endl;
     return 0;
 }

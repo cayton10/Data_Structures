@@ -12,4 +12,12 @@ class Equipment : public Item
     protected:
 
     public:
+
+        //Default equipment constructor
+        Equipment(string newName)
+        {
+            name = newName;
+            number = 1;
+            cout << "Equipment constructor" << endl;
+        };
 };
