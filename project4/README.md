@@ -11,6 +11,7 @@ A class Equipment which inherits Item and has a member bool equipped. The class 
 
 A class Consumable which inherits Item and has a member int uses and a member function bool isEmpty(). The class should also override Item::Use() and it should call isEmpty() to check if there are uses left, then either indicate that it is empty or reduce ‘uses’ by 1 and call the base class’s Use() if it is not empty. This would be like a health potion you can use x times in a game.
  	40%
+
 3. 	In main(), create an array of Item Pointers called ‘inventory’. Add instances of all 3 classes into the array, and then loop over them to display the results of each object’s Use() at least enough times to show running out of a Consumable item and unequipping an equipped Equipment item. The same line of code like 
 inventory[i]->Use(); should be enough to call the 3 different Use() functions (1 in each class) if you setup Polymorphism correctly.	40%
 
