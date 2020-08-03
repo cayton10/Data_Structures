@@ -16,26 +16,23 @@ class Item
         int number;
     //Declare public member functions
     public:
-        //Item constructor
-        Item(int num = 1, string newName = "Unnamed Item")
-        {
-            name = newName;
-            number = num;
-            //Item is constructed using MIL
-            //GO BACK AND REVIEW WHAT THIS IS CALLED IN "BASE CLASS CONSTRUCTORS, INHERITANCE" LECTURE
-            cout << "Called Item constructor" << endl;
-        }
+        //Default constructor prototype
+        Item(string str = "Unnamed Item", int num = 1);
 
         //Set Item prototype
         void setItem(string str, int num);
 
-        //Get Item prototype
-        string getItem()
+        //Get Item inline function
+        inline int getItem() const
+        {
+            return number;
+        }
+        inline string getName() const
         {
             return name;
         }
 
-        //Required virtual function
+        //Required virtual function to use item
         virtual void use();
 
 
