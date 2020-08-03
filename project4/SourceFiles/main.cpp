@@ -23,6 +23,9 @@ int main()
     //Call use function from item class
     thing.use();
 
+    Item thing2;
+    cout << thing2.getName() << endl;
+    cout << thing2.getItem() << endl;
 
     //Instance of Equipment object
     Equipment sword("Claymore");

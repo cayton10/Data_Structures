@@ -20,12 +20,12 @@ void Equipment::use()
     if (Equipment::equipped == false)
     {
         Equipment::equipped = true;
-        cout << name << " has been equipped.";
+        cout << name << " has been equipped." << endl;
     }
     else
     {
         Equipment::equipped = false;
-        cout << name << " has been unequipped.";
+        cout << name << " has been unequipped." << endl;
     } 
 };
 
