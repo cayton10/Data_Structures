@@ -30,4 +30,6 @@ class Consumable : public Item
         //Override item::use()
         virtual void use();
     
+        //Ostream operator overload prototype
+        friend ostream& operator<<(ostream&, const Consumable&);
 };

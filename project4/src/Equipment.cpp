@@ -1,8 +1,7 @@
-//Include guard
-#pragma once
 
+#include <iostream>
 #include <string>
-#include "../HeaderFiles/Equipment.h"
+#include "Equipment.h"
 
 using namespace std;
 //Overrideing Item function setItem()

@@ -1,16 +1,14 @@
+
 #include <iostream>
 #include <string>
 
 //All required file inclusions
 //Item Class
-#include "../HeaderFiles/Item.h"
-#include "../ResourceFiles/Item.cpp"
+#include "Item.h"
 //Equipment Class
-#include "../HeaderFiles/Equipment.h"
-#include "../ResourceFiles/Equipment.cpp"
+#include "Equipment.h"
 //Consumable Class
-#include "../HeaderFiles/Consumable.h"
-#include "../ResourceFiles/Consumable.cpp"
+#include "Consumable.h"
 
 
 using namespace std;

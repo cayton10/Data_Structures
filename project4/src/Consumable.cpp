@@ -1,9 +1,9 @@
 //Include guard
-#pragma once
 
+#include <iostream>
 #include <string>
 //Include header
-#include "../HeaderFiles/Consumable.h"
+#include "Consumable.h"
 
 using namespace std;
 
@@ -68,7 +68,7 @@ void Consumable::use()
 
 
 //Stream insertion operator overload
-ostream& operator<<(ostream& output, Consumable& object)
+ostream& operator<<(ostream& output, const Consumable& object)
 {
     output << object.getUses() << " " << object.getName() << " uses remaining.";
     return output;
