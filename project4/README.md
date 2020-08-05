@@ -1,5 +1,15 @@
 # Assignment 4 – Inheritance and Polymorphism
-Submit to MUOnline as a compressed (.zip) file containing your code project.
+
+## Learning Outcomes
+
+## Makefile
+<hr>8.4.2020</hr>
+
+I created a makefile with parameters outlined for placing binaries in a bin directory, as well as where to find custom .h files along with standard includes. This is my first forray into really organizing files in a way where they can be deployed. I'm attempting to also create some vs.json files for this and future projects, so these projects can be cloned to either MacOS and ran using VSCode or Windows using Visual Studio. Creating a streamlined, deployable product that works cross platform right "out of the box" has been a challenge, but It's been interesting to try and tackle. 
+
+<hr></hr>
+
+<strike>Submit to MUOnline as a compressed (.zip) file containing your code project.</strike>
 
 <strike>1. 	Ensure that your classes are each in their own files, the member variables are inaccessible except by public functions, and you apply the keywords const and override to functions and function parameters where appropriate.	20%
 			

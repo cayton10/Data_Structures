@@ -5,5 +5,3 @@
 #Debug Symbols 
 *.dSYM/
 
-#Executables
-*.exe
