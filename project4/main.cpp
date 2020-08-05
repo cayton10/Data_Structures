@@ -1,3 +1,14 @@
+/*****************************************************
+  Author: Benjamin Cayton
+  Project: Assignment 4: Inheritance and Polymorphism
+  Date: 8.5.2020
+  ****************************************************/
+/*Project Description: This program is designed to test
+  The working knowledge of using inheritance to create
+  derived classes. Function overloading and overriding
+  has also been employed to test the validity of
+  correct inheritance and polymorphism, respectively.
+  ****************************************************/
 
 #include <iostream>
 #include <string>
@@ -17,13 +28,10 @@ using namespace std;
 int main()
 {
     //Declare instance of item
-    Item thing("Potion", 20);
+    Item sponge("Sponge", 20);
     //Call use function from item class
-    thing.use();
+    sponge.use();
 
-    Item thing2;
-    cout << thing2.getName() << endl;
-    cout << thing2.getItem() << endl;
 
     //Instance of Equipment object
     Equipment sword("Claymore");
@@ -35,24 +43,36 @@ int main()
     //Use again
     sword.use();
     cout << endl;
-    
+
     //Instace of Consumable object
-    Consumable item;
+    Consumable healing("Potion", 2);
     //Set object info
-    item.setItem("Potion", 2); //Name of item is potion. Adds 3 potions to inventory
-    item.setUses(3); //Sets use charges in consumable class
-    cout << item << endl; //Outputs Consumable object remaining uses
-    item.use(); //Use Consumable object
-    cout << item << endl; //Outputs 2 use remaining
-    item.use(); //Use Consumable
-    item.use(); //Potion charges are empty.
-    item.use();
-    item.use();
-    item.use();
-    item.use();
-    item.use();
-    item.use();
-    item.use();
+    healing.setUses(3); //Sets use charges in consumable class
+    cout << healing << endl; //Outputs Consumable object remaining uses
+    healing.use(); //Use Consumable object
+    cout << healing << endl; //Outputs 2 uses remaining
+    healing.use(); //Use Consumable
+    healing.use(); //Use Consumable
+    healing.use(); //Use Consumable
+
+
+    //Create new instance of consumable for polymorphism testing
+    Consumable ether("Ether", 2);
+    ether.setUses(1);
+    //Create array of pointers
+    Item* itemArray[3];
+    //Initialize array indeces with addresses to derived classes
+    itemArray[0] = &sponge;
+    itemArray[1] = &sword;
+    itemArray[2] = &ether;
+
+    //Access array of pointers to w/ for loop
+    for (int i = 0; i < 3; ++i)
+    {
+        //Test use() as polymorphic function
+        itemArray[i]->use();
+    }
+   
 
     return 0;
 }

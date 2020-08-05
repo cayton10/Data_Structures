@@ -13,10 +13,10 @@ class Consumable : public Item
 
     public:
         //Default constructor
-        Consumable()
+        Consumable(string str = "Unnamed Consumable", int num = 1)
         {
-            name = "Unnamed Consumable";
-            number = 0;
+            name = str;
+            number = num;
         };
         /******************Setters & Getters*****************/
         //Set consumable number of uses
