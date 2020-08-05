@@ -91,6 +91,9 @@ class TextInt
         {
             return number != comparison.number;
         };
+
+        //Stream insertion operator overload
+        friend ostream& operator<<(ostream& output, TextInt& object);
         
 };
 

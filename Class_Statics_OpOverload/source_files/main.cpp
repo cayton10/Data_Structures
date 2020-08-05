@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 
-//Include class files
+//Include header files
 #include "../header_files/TextInt.h"
-#include "../resource_files/TextInt.cpp"
 
 using namespace std; //For std::*
 
