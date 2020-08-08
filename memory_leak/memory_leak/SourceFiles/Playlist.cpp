@@ -14,6 +14,14 @@ Playlist::Playlist(string str)
     listName = str;
 };
 
+//Display number of songs and name of playlist
+void Playlist::Display() const
+{
+    cout << Playlist::numberOfSongs << " Songs in Playlist \"" << Playlist::listName << "\".";
+};
+
+
+
 
 
 
