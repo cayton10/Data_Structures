@@ -29,27 +29,23 @@ int main()
     /*Expected Output:
      0 Songs in Playlist "Favorites" */
     
-    
     playlist1.AddSong("Ode to Joy");
     playlist1.AddSong("Vivaldi Springs");
     playlist1.AddSong("Beethoven's Symphony No. 5");
     playlist1.Display();
 
-    
     /*Expected Output:
      3 Songs in Playlist "Favorites":
      1. Ode to Joy
      2. Vivaldi Springs
      3. Beethoven's Symphony No. 5 */
     
-    /*
     cout << endl << endl << "Playlist 2: " << endl;
     Playlist playlist2(playlist1);
     playlist2.SetName("New Year's Music");
     playlist2.AddSong("Auld Lang Syne");
     playlist2[0] = "I Like To Move It";//HINT: [] is an operator that in this case would return string& (reference to a string)
     playlist2.Display();
-    */
     
     /*Expected Output:
      4 Songs in Playlist "New Year's Music":

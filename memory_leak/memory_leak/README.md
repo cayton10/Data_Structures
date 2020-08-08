@@ -9,4 +9,3 @@ b.    You are NOT allowed to change main.cpp to get it working, except to commen
 c.    Your Playlist class should contain, among other things, a dynamic array of strings with a default size of 2, and ints counting how many strings have been added and how many the array will hold. When a song has been added but won’t fit, you must make a new, larger dynamic array, copy the contents of the original into it, then delete the old one. Do this in a private function called Resize();
 
 d.    You should have no memory leaks when you are done. That means you will have to obey the Rule of 3 for the Playlist class.    
-
