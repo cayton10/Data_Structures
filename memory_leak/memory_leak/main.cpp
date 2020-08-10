@@ -54,10 +54,10 @@ int main()
      3. Beethoven's Symphony No. 5
      4. Auld Lang Syne */
     
-    /*
+    
     cout << endl << endl << "And Playlist 1 Again: " << endl;
     playlist1.Display();
-    */
+    
     
     /*Expected Output:
      3 Songs in Playlist "Favorites":
@@ -65,7 +65,7 @@ int main()
      2. Vivaldi Springs
      3. Beethoven's Symphony No. 5 */
     
-    /*
+    
     cout << endl << endl << "Playlist 3: " << endl;
     Playlist playlist3;
     cout << playlist3.GetName() << endl;//Should output Untitled
@@ -75,7 +75,7 @@ int main()
     playlist3.AddSong("Happy Happy Birthday!");
     playlist3.AddSong("For He's a Jolly Good Fellow");
     playlist3.Display();
-     */
+    
     
     
     /*Expected Output:
@@ -86,10 +86,10 @@ int main()
      4. Happy Happy Birthday!
      5. For He's a Jolly Good Fellow */
     
-    /*
+    
     cout << endl << endl << "And Playlist 1 One More Time!:" << endl;
     playlist1.Display();
-     */
+     
     
     /*Expected Output:
      3 Songs in Playlist "Favorites":

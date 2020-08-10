@@ -15,7 +15,7 @@ Playlist::Playlist(string str)
     //Set initial capacity
     capacity = 2;
     //Initialize playlist array
-    array = new string [capacity];
+    array = nullptr;
 };
 
 
@@ -37,6 +37,12 @@ string& Playlist::operator[](int index)
     return array[index];
 }
 
+//Gets name of playlist
+string Playlist::GetName() const
+{
+    return listName;
+}
+
 //Playlist desctructor
 Playlist::~Playlist()
 {
@@ -51,8 +57,22 @@ Playlist::Playlist(Playlist& otherArray)
 
 
 //Assignment operator overload
-const Playlist& Playlist::operator=(const Playlist& otherArray)
+Playlist& Playlist::operator=(Playlist& otherArray)
 {
+    //Copy name
+    listName = otherArray.listName;
+    //Copy size
+    size = otherArray.size;
+    //Copy capacity
+    capacity = otherArray.capacity;
+    //Delete array if not nullptr
+    if(array != nullptr)
+        delete[] array;
+    //Declare new pointer array
+    array = new string[capacity];
+    //Copy tracks from otherArray
+    for(int i = 0; i < size; ++i)
+        array[i] = otherArray[i];
     return *this;
 };
 
@@ -72,9 +92,16 @@ void Playlist::Display() const
 //AddSong() Pass string as parameter
 void Playlist::AddSong(string name)
 {
+    //Check for valid array pointer
+    if (array == nullptr)
+    {
+        array = new string[capacity];
+    }
+    
     //Control flow for array size vs. array capacity
     if(size == capacity)
         Resize(capacity * 2);
+    //Increment array index and set assign name
     array[size++] = name;
 }
 

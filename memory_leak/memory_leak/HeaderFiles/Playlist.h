@@ -13,13 +13,13 @@ class Playlist
     
 private:
     //Stores name of playlist
-    string listName;
+    string listName = "Unnamed";
     //Declare pointer
-    string* array;
+    string* array = nullptr;
     //Declare array size, init to 0
     int size = 0;
     //Declare array capactiy
-    int capacity;
+    int capacity = 2;
     //Resize array
     void Resize(int num);
     
@@ -28,6 +28,8 @@ public:
     Playlist(string name = "Default Playlist");
     //Sets name of playlist array
     void SetName(string str);
+    //Gets name of playlist array
+    string GetName() const;
     
     //Array index (subscript) operator overload
     string& operator[](int index);
@@ -39,7 +41,7 @@ public:
     Playlist(Playlist& otherArray);
     
     //Assignment overload
-    const Playlist& operator=(const Playlist&);
+    Playlist& operator=(Playlist& otherArray);
     
     //Display playlist function
     //Const function since values should not be changed by function
