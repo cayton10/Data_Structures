@@ -49,6 +49,7 @@ int sqRoot(int num)
         return squareRoot;
     else
         throw exc;
+    
 };
 
 
