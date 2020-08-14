@@ -7,8 +7,10 @@
 
 #include <iostream>
 #include <string>
-#include <cmath>
 //For squareroot function
+#include <cmath>
+//For Exception Handling
+#include "Exception.h"
 
 
 using namespace std;
@@ -20,19 +22,25 @@ int main()
 {
     //Declare variables
     int userChoice = 0;
-    
+    //Prompt user
     cout << "Please enter a perfect square: ";
     cin >> userChoice;
-    cout << endl << userChoice << endl;
-    cout << sqrt(userChoice) << endl;
-    
+
+    //Try - catch block
     try
     {
-        {sqRoot(userChoice);
-            cout << "Perfect square is: " << sqRoot(userChoice);
+        //Pass user choice to sqRoot function
+        {
+            sqRoot(userChoice);
+            //Outputs perfect square
+            cout << "Perfect square is: " << sqRoot(userChoice) << endl;
         }
-    } catch (string exc) {
-        cout << exc << endl;
+    }
+    //Catch Exception block
+    catch (Exception message)
+    {
+        //Use .what() to output Exception object, "message"
+        cout << message.what() << endl;
     }
     return 0;
 }
@@ -42,14 +50,13 @@ int sqRoot(int num)
 {
     //Declare variable to store square root
     int squareRoot;
-    string exc = string("Not a perfect square.");
     squareRoot = sqrt(num);
     
+    //If mod by 2 is equal to zero then no remainder... perfect square
     if(squareRoot % 2 == 0)
         return squareRoot;
     else
-        throw exc;
-    
+        throw Exception();
 };
 
 

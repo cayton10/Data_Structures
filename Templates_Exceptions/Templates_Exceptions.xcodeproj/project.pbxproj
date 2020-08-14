@@ -26,6 +26,7 @@
 		E8C986D924E5C09B007D89AB /* Templates_Exceptions */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Templates_Exceptions; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C986DC24E5C09B007D89AB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E8C986E324E5C103007D89AB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E8C986E524E6A445007D89AB /* Exception.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Exception.h; path = HeaderFiles/Exception.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 			children = (
 				E8C986DC24E5C09B007D89AB /* main.cpp */,
 				E8C986E324E5C103007D89AB /* README.md */,
+				E8C986E524E6A445007D89AB /* Exception.h */,
 			);
 			path = Templates_Exceptions;
 			sourceTree = "<group>";
@@ -183,6 +185,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "/Users/BPC/Documents/CIT/CIT236/Data_Structures/Templates_Exceptions/Templates_Exceptions/HeaderFiles/**";
 			};
 			name = Debug;
 		};
@@ -235,6 +238,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "/Users/BPC/Documents/CIT/CIT236/Data_Structures/Templates_Exceptions/Templates_Exceptions/HeaderFiles/**";
 			};
 			name = Release;
 		};
