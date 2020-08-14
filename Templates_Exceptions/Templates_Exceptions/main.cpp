@@ -17,6 +17,8 @@ using namespace std;
 
 //Takes an int parameter and returns its square
 int sqRoot(int num);
+//Takes two int params - 1st base, 2nd exponent
+int myPower(int base, int exp);
 
 int main()
 {
@@ -33,7 +35,7 @@ int main()
         {
             sqRoot(userChoice);
             //Outputs perfect square
-            cout << "Perfect square is: " << sqRoot(userChoice) << endl;
+            cout << "The square root of " << userChoice << " is: " << sqRoot(userChoice) << endl;
         }
     }
     //Catch Exception block
@@ -42,8 +44,15 @@ int main()
         //Use .what() to output Exception object, "message"
         cout << message.what() << endl;
     }
+    
+    //Call function myPower
+    cout << myPower(8, 3) << endl; //Outputs 512
+    
     return 0;
 }
+
+/************************************************************************
+ *********************SQROOT FUNCTION***********************************/
 
 //Takes an int parameter and returns its square
 int sqRoot(int num)
@@ -58,5 +67,18 @@ int sqRoot(int num)
     else
         throw Exception();
 };
+
+/************************************************************************
+ **************************RECURSIVE FUNCTION***************************/
+//Takes base int followed by exponent int
+int myPower(int base, int exp)
+{
+    //Base condition
+    if(exp == 0)
+        return 1;
+    else
+        return base * myPower(base, exp - 1);
+};
+
 
 
