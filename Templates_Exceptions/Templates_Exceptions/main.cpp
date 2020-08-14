@@ -9,8 +9,10 @@
 #include <string>
 //For squareroot function
 #include <cmath>
+//For floor
+#include <math.h>
 //For Exception Handling
-#include "Exception.h"
+#include "Imperfect.h"
 
 
 using namespace std;
@@ -46,14 +48,14 @@ int main()
         }
     }
     //Catch Exception block
-    catch (Exception message)
+    catch (Imperfect message)
     {
         //Use .what() to output Exception object, "message"
         cout << message.what() << endl;
     }
     
     //Call function myPower
-    cout << myPower(8, 3) << endl; //Outputs 512
+    cout << myPower(125, 4) << endl; //Outputs 512
     
     cout << "Largest of integers: " << larger(10, 20, 30) << endl;
     cout << "Largest of doubles: " << larger(2.5, 1.5, 8.75) << endl;
@@ -65,18 +67,23 @@ int main()
 /************************************************************************
  *********************SQROOT FUNCTION***********************************/
 
-//Takes an int parameter and returns its square
+//Takes an int parameter and returns its square root
 int sqRoot(int num)
 {
     //Declare variable to store square root
-    int squareRoot;
-    squareRoot = sqrt(num);
+    double squareRoot;
+    double remainder;
+    //First, round sqrt
+    squareRoot = floor(sqrt(num));
+    //Leave returned sqrt val as is
+    remainder = sqrt(num);
     
-    //If mod by 2 is equal to zero then no remainder... perfect square
-    if(squareRoot % 2 == 0)
+    //If no remainder, then perfect square
+    if(remainder - squareRoot == 0)
         return squareRoot;
+    //Else remainder exists, and imperfect
     else
-        throw Exception();
+        throw Imperfect();
 };
 
 /************************************************************************
@@ -84,10 +91,11 @@ int sqRoot(int num)
 //Takes base int followed by exponent int
 int myPower(int base, int exp)
 {
-    //Base condition
+    //Base case
     if(exp == 0)
         return 1;
     else
+    //General case
         return base * myPower(base, exp - 1);
 };
 
