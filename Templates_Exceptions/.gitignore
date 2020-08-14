@@ -1,8 +1,0 @@
-#Ignore .DSStore file structure dot file from MacOS
-.DSStore
-
-#Ignore executables
-*.exe
-
-#Ignore build folder
-*.dSYM
