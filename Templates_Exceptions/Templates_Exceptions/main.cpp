@@ -19,11 +19,18 @@ using namespace std;
 int sqRoot(int num);
 //Takes two int params - 1st base, 2nd exponent
 int myPower(int base, int exp);
+//Template function
+template <class Type>
+Type larger(Type x, Type y, Type z);
+
 
 int main()
 {
     //Declare variables
     int userChoice = 0;
+    string str1 = "Lando is the best.";
+    string str2 = "Checo always wins.";
+    string str3 = "Larry can't sleep.";
     //Prompt user
     cout << "Please enter a perfect square: ";
     cin >> userChoice;
@@ -47,6 +54,10 @@ int main()
     
     //Call function myPower
     cout << myPower(8, 3) << endl; //Outputs 512
+    
+    cout << "Largest of integers: " << larger(10, 20, 30) << endl;
+    cout << "Largest of doubles: " << larger(2.5, 1.5, 8.75) << endl;
+    cout << "Largest of strings: " << larger(str1, str2, str3) << endl;
     
     return 0;
 }
@@ -79,6 +90,22 @@ int myPower(int base, int exp)
     else
         return base * myPower(base, exp - 1);
 };
+
+/************************************************************************
+ *************************FUNCTION TEMPLATE*****************************/
+//Takes two parameters and compares their 'size'. Returns largest
+template <class Type>
+Type larger(Type x, Type y, Type z)
+{
+    //Pretty self explanatory logic
+    if (x > y && x > z)
+        return x;
+    else if(y > x && y > z)
+        return y;
+    else
+        return z;
+}
+
 
 
 

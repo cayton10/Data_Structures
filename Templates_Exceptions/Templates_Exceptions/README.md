@@ -13,4 +13,4 @@ Test the function with a perfect square (like 16) and a non-perfect square (like
 For example, 
 cout << LooplessPow(2, 4) << endl;//prints out 16</strike>
 
-Write a function template that will take 3 objects and return the largest one. Test the function with ints, doubles, and strings in your program. When testing with strings the ‘largest’ should be the last one alphabetically (Zebra is larger than Aardvark). Make sure you declare or cast to string, or use <string> when calling the function; if you just pass in string literals with double quotes the template argument will be const char* instead of string, and not give you the desired result.
+<strike>Write a function template that will take 3 objects and return the largest one. Test the function with ints, doubles, and strings in your program. When testing with strings the ‘largest’ should be the last one alphabetically (Zebra is larger than Aardvark). Make sure you declare or cast to string, or use <string> when calling the function; if you just pass in string literals with double quotes the template argument will be const char* instead of string, and not give you the desired result.</strike>
