@@ -15,7 +15,10 @@ Lottery::Lottery()
     //Must cast to unsigned int to avoid changing to 'long' dataType
     srand(static_cast<unsigned int>(time(0)));
     
-    
+    //Set default parameters
+    upper = 31;
+    lower = 1;
+    vectorSize = 5;
     //Call fillVector to set up winning numbers for default lottery construction
     fillVector(vectorSize);
 };
@@ -43,17 +46,13 @@ int Lottery::randomNumber(int upper, int lower)
         if(winningNumbers[index] == result)
         {
             found = true;
-            cout << "found duplicate: " << winningNumbers[index] << " and " << result << endl;
-            cout << index << endl;
-            //If found, make another number
+            //If found, make another number and dump into vector
             if(found)
                 result = rand() % upper + lower;
-            
         }
         else
             index++;
     }
-    
     return result;
 }
 
@@ -62,6 +61,5 @@ void Lottery::fillVector(int size)
 {
     //Access private member and fill with randomNumber()
     for(int i = 0; i < size; ++i)
-        winningNumbers.push_back(randomNumber());
-    
+        winningNumbers.push_back(randomNumber(upper, lower));
 }

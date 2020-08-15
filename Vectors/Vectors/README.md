@@ -6,7 +6,7 @@
 
 It should generate different numbers each time you run the program.</strike>
 
-The 5 numbers generated must be unique (no duplicates). Many of you will look online and find the function ‘unique()’, it is NOT the best way to make sure they are unique; read its documentation carefully if you use it, or figure out a different way. 
+<strike>The 5 numbers generated must be unique (no duplicates). Many of you will look online and find the function ‘unique()’, it is NOT the best way to make sure they are unique; read its documentation carefully if you use it, or figure out a different way. </strike>
 
 Have a user type in 5 numbers and store those in a separate vector. They should be able to type the numbers in in any order.
 

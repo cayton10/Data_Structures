@@ -18,8 +18,10 @@ using namespace std;
 
 int main()
 {
+    //Instantiate winning numbers vector with default constructor
     Lottery Winner;
     
+    //Display winning numbers (unsorted>
     Winner.displayWinners();
     
     return 0;
