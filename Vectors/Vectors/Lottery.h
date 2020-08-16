@@ -16,10 +16,12 @@ public:
     void setVectorSize(int size = 5);
     //Display winning numbers
     void displayWinners() const;
+    //Fill vector with winning numbers. Int parameter determines length of number list
+    void fillWinners(int vectorSize);
     //Random number generator takes upper and lower limit of random generated numbers(inclusive)
     int randomNumber(int num1, int num2);
-    //Fill vector with winning numbers. Int parameter determines length of number list
-    void fillVector(int vectorSize);
+    //Fill vector with user picks. Int parameter determines length of number list
+    void fillUserPicks(int vectorSize);
     
     
     
@@ -30,6 +32,8 @@ private:
     int vectorSize;
     //Store winning numbers
     vector <int> winningNumbers;
+    //Store user numbers
+    vector <int> userPicks;
 };
 
 #endif /* Lottery_h */

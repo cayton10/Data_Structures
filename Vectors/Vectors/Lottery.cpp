@@ -20,13 +20,22 @@ Lottery::Lottery()
     lower = 1;
     vectorSize = 5;
     //Call fillVector to set up winning numbers for default lottery construction
-    fillVector(vectorSize);
+    fillWinners(vectorSize);
 };
 
+//Display winning numbers
 void Lottery::displayWinners() const
 {
     for(int i = 0; i < vectorSize; ++i)
         cout << winningNumbers[i] << endl;
+}
+
+//Set winning numbers takes int as size of vector
+void Lottery::fillWinners(int size)
+{
+    //Access private member and fill with randomNumber()
+    for(int i = 0; i < size; ++i)
+        winningNumbers.push_back(randomNumber(upper, lower));
 }
 
 //Random number generator takes upper and lower limit of random generated numbers(inclusive)
@@ -46,20 +55,16 @@ int Lottery::randomNumber(int upper, int lower)
         if(winningNumbers[index] == result)
         {
             found = true;
-            //If found, make another number and dump into vector
-            if(found)
+            
+            //While duplicates are found, generate new random
+            while(winningNumbers[index] == result && found)
                 result = rand() % upper + lower;
+            //Reset index and bool to process again
+            index = 0;
+            found = false;
         }
         else
             index++;
     }
     return result;
-}
-
-//Set winning numbers takes int as size of vector
-void Lottery::fillVector(int size)
-{
-    //Access private member and fill with randomNumber()
-    for(int i = 0; i < size; ++i)
-        winningNumbers.push_back(randomNumber(upper, lower));
 }
