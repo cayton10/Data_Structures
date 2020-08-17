@@ -5,20 +5,18 @@
 #include <random>
 #include <stdio.h>
 
+#include "Timer.h"
 #include "Lottery.h"
 
 //Default lottery constructor
-Lottery::Lottery()
+Lottery::Lottery(int num1, int num2, int num3)
+: upper(num1), lower(num2), vectorSize(num3)
 {
     //Seed unique random numbers for each instance of lottery object
     //Seed unique RNG between program runs
     //Must cast to unsigned int to avoid changing to 'long' dataType
     srand(static_cast<unsigned int>(time(0)));
-    
-    //Set default parameters
-    upper = 31;
-    lower = 1;
-    vectorSize = 5;
+
     //Call fillVector to set up winning numbers for default lottery construction
     fillWinners(vectorSize);
 };
@@ -33,9 +31,11 @@ void Lottery::displayWinners() const
 //Set winning numbers takes int as size of vector
 void Lottery::fillWinners(int size)
 {
+    //Set capacity for winning numbers
+    winningNumbers.reserve(vectorSize);
     //Access private member and fill with randomNumber()
     for(int i = 0; i < size; ++i)
-        winningNumbers.push_back(randomNumber(upper, lower));
+        winningNumbers[i] = (randomNumber(upper, lower));
 }
 
 //Random number generator takes upper and lower limit of random generated numbers(inclusive)

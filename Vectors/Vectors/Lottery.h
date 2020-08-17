@@ -8,12 +8,8 @@ using namespace std;
 class Lottery
 {
 public:
-    //Default constructor
-    Lottery();
-    //Lottery overload takes 3 int parameters (upperLimit, lowerLimit, and numberOfPlays)
-    Lottery(int num1, int num2, int num3);
-    //Set vectorSize;
-    void setVectorSize(int size = 5);
+    //Default constructor int1 = upper range, int2 = lower range, int3 = number of picks
+    Lottery(int num1 = 31, int num2 = 1, int num3 = 5);
     //Display winning numbers
     void displayWinners() const;
     //Fill vector with winning numbers. Int parameter determines length of number list

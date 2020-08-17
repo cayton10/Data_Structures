@@ -20,18 +20,22 @@ int main()
 {
     //Declare variables
     int size;
+    int number;
     vector<int> userPicks;
     
     cout << "How many numbers would you like to play? ";
     cin >> size;
     //Call Lottery member function to set size
-    cout << endl << "Enter " << size << " numbers in any order. Winning numbers are unique." << endl;
-    cout << "Enter numbers: ";
+    cout << endl << "Enter " << size << " numbers in any order. Do not pick any number more than once." << endl << endl;
+    //Iterative for loop to enter user picks
     for(int i = 0; i < size; ++i)
     {
-        cout << "Enter number " << i << ": ";
-        cin >> 
+        cout << "Enter number " << i + 1 << ": ";
+        cin >> number;
+        userPicks.push_back(number);
     }
+    
+    
     //Instantiate winning numbers vector with default constructor
     Lottery Winner;
     
