@@ -4,19 +4,19 @@
 
 using namespace std;
 
-#ifndef Except_h
-#define Except_h
+#ifndef Imperfect_h
+#define Imperfect_h
 
-class Exception
+class Imperfect
 {
 public:
     //Default constructor
-    Exception()
+    Imperfect()
     {
         message = "Not a perfect square: ";
     }
     //User can create their own exception messages
-    Exception(string str)
+    Imperfect(string str)
     {
         str = message;
     }
@@ -29,4 +29,4 @@ private:
     string message;
 };
 
-#endif /* Except_h */
+#endif /* Imperfect_h */

@@ -11,6 +11,8 @@
 #include <time.h>
 #include <random>
 
+//Performance includes
+#include "Timer.h"
 //Include user defined classes
 #include "Lottery.h"
 
@@ -18,29 +20,32 @@ using namespace std;
 
 int main()
 {
+
     //Declare variables
-    int size;
-    int number;
-    vector<int> userPicks;
+    int size = 5;
+    bool winner = false;
+    /*int number;
+    int min;
+    int max;*/
     
-    cout << "How many numbers would you like to play? ";
-    cin >> size;
-    //Call Lottery member function to set size
-    cout << endl << "Enter " << size << " numbers in any order. Do not pick any number more than once." << endl << endl;
-    //Iterative for loop to enter user picks
-    for(int i = 0; i < size; ++i)
-    {
-        cout << "Enter number " << i + 1 << ": ";
-        cin >> number;
-        userPicks.push_back(number);
-    }
+    //Create Timer object
+    Timer timer;
     
-    
+    timer.Start();
     //Instantiate winning numbers vector with default constructor
-    Lottery Winner;
+    //Automatically creates vector with random numbers
+    Lottery Fiver;
     
-    //Display winning numbers (unsorted>
-    Winner.displayWinners();
-    
+    Fiver.fillUserPicks(size);
+    //Display winning numbers
+    Fiver.displayWinners();
+    //Set winner bool value by calling checkWinner
+    winner = Fiver.checkWinner(size);
+    if (winner == true)
+        cout << "Congratulations!!! You won!!!";
+    else
+        cout << "Better luck next time :'(" << endl;
+    timer.Stop();
+    timer.Report();
     return 0;
 }

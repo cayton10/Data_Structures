@@ -8,7 +8,7 @@ It should generate different numbers each time you run the program.</strike>
 
 <strike>The 5 numbers generated must be unique (no duplicates). Many of you will look online and find the function ‘unique()’, it is NOT the best way to make sure they are unique; read its documentation carefully if you use it, or figure out a different way. </strike>
 
-Have a user type in 5 numbers and store those in a separate vector. They should be able to type the numbers in in any order.
+<strike>Have a user type in 5 numbers and store those in a separate vector. They should be able to type the numbers in in any order.<strike>
 
 Determine if the player ‘won’ the lottery by comparing their numbers to the sorted vector of lottery numbers. Remember, the order they chose doesn’t matter. If the lottery numbers were 1-2-3-4-5, and the user picked 3-2-5-1-4, then they won. Use the sort function to make it more efficient to compare the two sets of numbers.    50%
 
