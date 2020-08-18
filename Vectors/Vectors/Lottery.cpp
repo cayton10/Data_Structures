@@ -21,6 +21,7 @@ Lottery::Lottery(int num1, int num2, int num3)
 
     //Call fillVector to set up winning numbers for default lottery construction
     winningNumbers = fillVector();
+    attempts = 0;
 };
 
 //Display winning numbers
@@ -112,7 +113,10 @@ void Lottery::checkWinner()
     for(int i = 0; i < vectorSize; ++i)
     {
         if(winningNumbers[i] == userPicks[i])
+        {
             winner = true;
+            ++attempts;
+        }
         else
         {
             winner = false;
@@ -137,7 +141,10 @@ bool Lottery::checkComputerWin(const vector<int>& compVector)
     for(int i = 0; i < vectorSize; ++i)
     {
         if(winningNumbers[i] == compVector[i])
+        {
             winner = true;
+            ++attempts;
+        }
         else
         {
             winner = false;

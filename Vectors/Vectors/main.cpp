@@ -37,7 +37,7 @@ int main()
      ***********************************************************/
     //Instantiate winning numbers vector with default constructor
     //Automatically creates vector with random numbers
-    /*
+    
     Lottery Fiver;
     promptUser(min, max);
     //Calls object function to fill userPicks vector
@@ -54,7 +54,7 @@ int main()
     /***********************************************************
                         END ITEM NO. 1
      **********************************************************/
-    /*
+    
     //Begin item 2
     cout << "Enter the number of picks you would like to make: ";
     cin >> size;
@@ -77,7 +77,7 @@ int main()
     Player.checkWinner();
     
     cout << endl;
-    */
+    
     /**********************************************************
                         END ITEM NO. 2
      **********************************************************/
