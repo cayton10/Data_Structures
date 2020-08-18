@@ -18,7 +18,7 @@
 
 using namespace std;
 
-string promptUser(int num1, int num2);
+string promptUser(int num1, int num2, int num3);
 
 int main()
 {
@@ -39,7 +39,7 @@ int main()
     //Automatically creates vector with random numbers
     
     Lottery Fiver;
-    promptUser(min, max);
+    cout << promptUser(min, max, size) << endl;
     //Calls object function to fill userPicks vector
     Fiver.fillUserPicks(size);
     cout << endl;
@@ -67,7 +67,7 @@ int main()
     
     //Create lottery object with user defined parameters
     Lottery Player(max, min, size);
-    cout << promptUser(min, max) << endl;
+    cout << promptUser(min, max, size) << endl;
     Player.fillUserPicks(size);
     cout << endl;
     cout << "The winning numbers are: ";
@@ -99,12 +99,13 @@ int main()
 
 
 //Function to reset prompt after user enters lottery specifics
-string promptUser(int num1, int num2)
+string promptUser(int num1, int num2, int num3)
 {
     string low = to_string(num1);
     string high = to_string(num2);
+    string range = to_string(num3);
     string prompt;
-    prompt = "Please enter lottery pick numbers when prompted. Enter numbers between " + low + " - " + high + ".";
+    prompt = "Enter " + range + " numbers between " + low + " - " + high + ".";
     
     return prompt;
 }

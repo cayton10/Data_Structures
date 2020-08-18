@@ -21,6 +21,7 @@ Lottery::Lottery(int num1, int num2, int num3)
 
     //Call fillVector to set up winning numbers for default lottery construction
     winningNumbers = fillVector();
+    //Reset attempts if a new lottery object is constructed
     attempts = 0;
 };
 
