@@ -9,7 +9,7 @@ class Lottery
 {
 public:
     //Default constructor int1 = upper range, int2 = lower range, int3 = number of picks
-    Lottery(int num1 = 5, int num2 = 1, int num3 = 5);
+    Lottery(int num1 = 30, int num2 = 1, int num3 = 5);
     //Display winning numbers
     void displayWinners() const;
     //Fill vector with winning numbers. Int parameter determines length of number list
@@ -19,7 +19,9 @@ public:
     //Fill vector with user picks. Int parameter determines size of lottery plays
     void fillUserPicks(const int& vectorSize);
     //Check winner. Pass two vectors as parameters to compare their values
-    bool checkWinner(const int& vectorSize);
+    void checkWinner(const int& vectorSize);
+    //Repeat play
+    void repeatPlay(const int& num1, const int& num2, const int& num3);
     
     
     
@@ -28,10 +30,12 @@ private:
     int upper;
     int lower;
     int vectorSize;
+    int attempts;
     //Store winning numbers
     vector <int> winningNumbers;
     //Store user numbers
     vector <int> userPicks;
+    
 };
 
 #endif /* Lottery_h */

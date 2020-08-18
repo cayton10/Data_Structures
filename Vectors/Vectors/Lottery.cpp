@@ -27,7 +27,13 @@ Lottery::Lottery(int num1, int num2, int num3)
 void Lottery::displayWinners() const
 {
     for(int i = 0; i < vectorSize; ++i)
-        cout << winningNumbers[i] << endl;
+    {
+        //Appropriate comma formatting
+        if(i != (vectorSize - 1))
+            cout << winningNumbers[i] << ", " ;
+        else
+            cout << winningNumbers[i];
+    }
 }
 
 //Set winning numbers takes int as size of vector
@@ -36,14 +42,16 @@ void Lottery::fillWinners(const int& size)
     //Set capacity / size for winning numbers
     winningNumbers.resize(vectorSize);
     //Access private member and fill with randomNumber()
-    timer.Start();
+
     for(int i = 0; i < size; ++i)
         winningNumbers[i] = randomNumber(upper, lower);
     
     //Sort vector for search and comparison down the road
     sort(winningNumbers.begin(), winningNumbers.end());
-    timer.Stop();
-    timer.Report();
+    
+    //reset attempts counter if new numbers are requested
+    attempts = 0;
+
 }
 
 //Random number generator takes upper and lower limit of random generated numbers(inclusive)
@@ -90,7 +98,6 @@ void Lottery::fillUserPicks(const int& vectorSize)
     for (int i = 0; i < vectorSize; ++i) {
         cout << "Enter pick number " << i + 1 << ": ";
         cin >> userNumber;
-        cout << endl;
         userPicks[i] = userNumber;
     }
     //Sort userPicks for comparison
@@ -98,7 +105,7 @@ void Lottery::fillUserPicks(const int& vectorSize)
 }
 
 //Check winner. Pass two vectors and int size to compare values
-bool Lottery::checkWinner(const int& vectorSize)
+void Lottery::checkWinner(const int& vectorSize)
 {
     //Return winner boolean for results
     bool winner = false;
@@ -107,5 +114,12 @@ bool Lottery::checkWinner(const int& vectorSize)
         if(winningNumbers[i] == userPicks[i])
             winner = true;
     }
-    return winner;
+    if(winner == true)
+        cout << "Congratulations!!! You won!!!";
+    else
+        cout << "Better luck next time :'(" << endl << endl;
+    //Increment attempts and report
+    cout << "Attempts: " << ++attempts;
 }
+
+
