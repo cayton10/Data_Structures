@@ -12,16 +12,16 @@ public:
     Lottery(int num1 = 30, int num2 = 1, int num3 = 5);
     //Display winning numbers
     void displayWinners() const;
-    //Fill vector with winning numbers. Int parameter determines length of number list
-    void fillWinners(const int& vectorSize);
+    //Returns a vector with random numbers sorted.
+    vector<int> fillVector();
     //Random number generator takes upper and lower limit of random generated numbers(inclusive)
-    int randomNumber(const int& num1, const int& num2);
+    int randomNumber(const int& num1, const int& num2, vector<int>& vec);
     //Fill vector with user picks. Int parameter determines size of lottery plays
     void fillUserPicks(const int& vectorSize);
     //Check winner. Pass two vectors as parameters to compare their values
-    void checkWinner(const int& vectorSize);
-    //Repeat play
-    void repeatPlay(const int& num1, const int& num2, const int& num3);
+    void checkWinner();
+    //Check winner for computer player
+    bool checkComputerWin(const vector<int>& compVector);
     
     
     
@@ -35,6 +35,8 @@ private:
     vector <int> winningNumbers;
     //Store user numbers
     vector <int> userPicks;
+    //Store computer 'player' numbers
+    vector <int> computerPicks;
     
 };
 

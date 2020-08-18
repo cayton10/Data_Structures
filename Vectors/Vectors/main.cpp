@@ -28,6 +28,8 @@ int main()
     int min = 1;
     int max = 30;
     string prompt;
+    vector<int> computerVector;
+    bool winner = false;
     
     /************************************************************
      THIS BLOCK OF CODE TESTS THE DEFAULT PARAMETERS OF THE PROGRAM
@@ -35,7 +37,7 @@ int main()
      ***********************************************************/
     //Instantiate winning numbers vector with default constructor
     //Automatically creates vector with random numbers
-    
+    /*
     Lottery Fiver;
     promptUser(min, max);
     //Calls object function to fill userPicks vector
@@ -45,14 +47,14 @@ int main()
     //Displays winning numbers
     Fiver.displayWinners();
     //Check for winner
-    Fiver.checkWinner(size);
+    Fiver.checkWinner();
 
     cout << endl;
     
     /***********************************************************
                         END ITEM NO. 1
      **********************************************************/
-    
+    /*
     //Begin item 2
     cout << "Enter the number of picks you would like to make: ";
     cin >> size;
@@ -72,18 +74,26 @@ int main()
     //Displays winning numbers
     Player.displayWinners();
     //Check for winner
-    Player.checkWinner(size);
+    Player.checkWinner();
     
     cout << endl;
-    
+    */
     /**********************************************************
                         END ITEM NO. 2
      **********************************************************/
     
     //Begin item 3
+    //Create instance of computer run
+    Lottery Computer;
+    computerVector.resize(5);
+    while(winner == false)
+    {
+        //Fill computer choice vector
+        computerVector = Computer.fillVector();
+        //Check winner
+        winner = Computer.checkComputerWin(computerVector);
+    }
     
-    
-
     return 0;
 }
 

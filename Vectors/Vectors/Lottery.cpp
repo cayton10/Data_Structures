@@ -20,7 +20,7 @@ Lottery::Lottery(int num1, int num2, int num3)
     srand(static_cast<unsigned int>(time(0)));
 
     //Call fillVector to set up winning numbers for default lottery construction
-    fillWinners(vectorSize);
+    winningNumbers = fillVector();
 };
 
 //Display winning numbers
@@ -32,30 +32,30 @@ void Lottery::displayWinners() const
         if(i != (vectorSize - 1))
             cout << winningNumbers[i] << ", " ;
         else
-            cout << winningNumbers[i];
+            cout << "and " << winningNumbers[i] << endl;
     }
 }
 
 //Set winning numbers takes int as size of vector
-void Lottery::fillWinners(const int& size)
+vector<int> Lottery::fillVector()
 {
+    vector<int> vec;
     //Set capacity / size for winning numbers
-    winningNumbers.resize(vectorSize);
+    vec.resize(vectorSize);
     //Access private member and fill with randomNumber()
 
-    for(int i = 0; i < size; ++i)
-        winningNumbers[i] = randomNumber(upper, lower);
+    for(int i = 0; i < vectorSize; ++i)
+        vec[i] = randomNumber(upper, lower, vec);
     
     //Sort vector for search and comparison down the road
-    sort(winningNumbers.begin(), winningNumbers.end());
+    sort(vec.begin(), vec.end());
     
-    //reset attempts counter if new numbers are requested
-    attempts = 0;
 
+    return vec;
 }
 
 //Random number generator takes upper and lower limit of random generated numbers(inclusive)
-int Lottery::randomNumber(const int& upper, const int& lower)
+int Lottery::randomNumber(const int& upper, const int& lower, vector<int>& vec)
 {
     //Declare result variable
     int result = rand();//Flush sink
@@ -68,14 +68,14 @@ int Lottery::randomNumber(const int& upper, const int& lower)
     result = rand() % range + lower;
     //Use while loop to search vector, find and replace duplicate values
     //Sequential search isn't most efficient, but algorithms is next semester, right?
-    while (index < winningNumbers.size() && !found)
+    while (index < vec.size() && !found && vec[index] != 0)
     {
-        if(winningNumbers[index] == result)
+        if(vec[index] == result)
         {
             found = true;
             
             //While duplicates are found, generate new random
-            while(winningNumbers[index] == result && found)
+            while(vec[index] == result && found)
                 result = rand() % upper + lower;
             //Reset index and bool to process again
             index = 0;
@@ -104,22 +104,55 @@ void Lottery::fillUserPicks(const int& vectorSize)
     sort(userPicks.begin(), userPicks.end());
 }
 
-//Check winner. Pass two vectors and int size to compare values
-void Lottery::checkWinner(const int& vectorSize)
+//Check winner.
+void Lottery::checkWinner()
 {
-    //Return winner boolean for results
+    //Condition
     bool winner = false;
     for(int i = 0; i < vectorSize; ++i)
     {
         if(winningNumbers[i] == userPicks[i])
             winner = true;
+        else
+        {
+            winner = false;
+            //Increment attempts
+            ++attempts;
+            break;
+        }
     }
     if(winner == true)
         cout << "Congratulations!!! You won!!!";
     else
         cout << "Better luck next time :'(" << endl << endl;
-    //Increment attempts and report
-    cout << "Attempts: " << ++attempts;
+    //Report attempts
+    cout << "Attempts: " << attempts << endl;
+}
+
+//Check winner for computer while loop
+bool Lottery::checkComputerWin(const vector<int>& compVector)
+{
+    //Condition
+    bool winner = false;
+    for(int i = 0; i < vectorSize; ++i)
+    {
+        if(winningNumbers[i] == compVector[i])
+            winner = true;
+        else
+        {
+            winner = false;
+            //Increment attempts
+            ++attempts;
+            break;
+        }
+    }
+    if(winner == true)
+    {
+        cout << "Computer wins after " << attempts << " attempts." << endl;
+        return winner;
+    }
+    else
+        return winner;
 }
 
 
