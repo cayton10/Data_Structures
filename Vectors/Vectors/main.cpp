@@ -84,8 +84,10 @@ int main()
     
     //Begin item 3
     //Create instance of computer run
+    Timer timer;
     Lottery Computer;
     computerVector.resize(5);
+    timer.Start();
     while(winner == false)
     {
         //Fill computer choice vector
@@ -93,6 +95,8 @@ int main()
         //Check winner
         winner = Computer.checkComputerWin(computerVector);
     }
+    timer.Stop();
+    timer.Report();
     
     return 0;
 }
