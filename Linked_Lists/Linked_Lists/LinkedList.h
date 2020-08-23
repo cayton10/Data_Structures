@@ -121,15 +121,110 @@ public:
 	}
 
     //Add an element anywhere in the linked list. Pass a value to insert and one to search for
-	void Insert(T insertVal, T searchVal)
+	void Insert(const T& insertVal, const T& searchVal)
 	{
+        //I got the structure for this function from our text book: section 17-4b
+        //Declare pointers
+        Node* current; //pointer to traverse the list
+        Node* trailCurrent = nullptr; //pointer just before current
+        Node* newNode;//pointer to create inserted node
         
+        bool found = false;
+        newNode = new Node(insertVal, nullptr);//Create new node to store data and link
+        newNode->data = insertVal;//Store data value
+        newNode->next = nullptr;//Set the link field of the node to nullptr
         
+        //Case 1
+        if(head == nullptr)
+        {
+            head = newNode;
+            tail = newNode;
+            size++;
+        }
+        else
+        {
+            current = head;//set current to point to the first node in list
+            while (current != nullptr && !found)//Search the list
+            {
+                if(current->data == searchVal)
+                    found = true;
+                else
+                {
+                    trailCurrent = current;
+                    current = current->next;
+                }
+            }
+            if(current == head)//Case 2
+            {
+                newNode->next = head;
+                head = newNode;
+                size++;
+            }
+            else//Case 3
+            {
+                trailCurrent->next = newNode;
+                newNode->next = current;
+                
+                if(current == nullptr)
+                    tail = newNode;
+                
+                size++;
+            }
+        }
     }
 
-	void Remove(T data)
+	void Remove(const T& searchVal)
 	{
-		//A8
+		//Declare pointers
+        Node* current; //pointer to traverse the list
+        Node* trailCurrent = nullptr; //pointer just before current
+        
+        bool found = false;
+        
+        if(head == nullptr)//Empty linked list case
+            cout << "Cannot delete from empty linked list." << endl;
+        else
+        {
+            current = head;
+            
+            //Search for value
+            while(current != nullptr && !found)
+            {
+                if(current->data == searchVal)
+                    found = true;
+                else
+                {
+                    trailCurrent = current;
+                    current = current->next;
+                }
+            if(current == nullptr)//If item isn't found by end of list
+                cout << "The item you wish to remove is not in the linked list." << endl;
+            else
+                if(current->data == searchVal)//If it is found
+                {
+                    if(head == current)
+                    {
+                        head = head->next;
+                        
+                        if(head == nullptr)
+                            tail = nullptr;
+                        
+                        delete current;
+                    }
+                    else//Case 3
+                    {
+                        trailCurrent->next = current->next;
+                        
+                        if(current == tail)
+                            trailCurrent = tail;
+                        
+                        delete current->next;
+                    }
+                    size--;
+                }
+            }
+        }
+        
 	}
 
 	void PopFront()
@@ -191,16 +286,7 @@ public:
     //Added this function to search an undorderedLinkedList from book 17-3a
     bool search(const T& searchItem)const
     {
-        Node* current; //pointer to traverse the list
-        bool found = false;
-        current = head;//set current to point to the first node in list
         
-        while(current!= nullptr && !found)//search the list
-            if(current->data == searchItem)//searchItem is found
-                found = true;
-            else
-                current = current->next;//Make current pt to next node
-        return found;
     }//end search
 
 private:
