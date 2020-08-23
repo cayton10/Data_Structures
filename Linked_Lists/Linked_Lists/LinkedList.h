@@ -65,7 +65,7 @@ public:
 			cout << "nullptr" << endl;
 		}
 	}
-	
+
 	//For testing and making sure when you implement something (like for assignment 8) you 
 	//haven't messed up what head and tail point to.
 	void GetTailValue()
@@ -75,7 +75,7 @@ public:
 		else
 			cout << "tail: " << tail->data << endl;
 	}
-	
+
 	void GetHeadValue()
 	{
 		if (IsEmpty())
@@ -120,111 +120,112 @@ public:
 		size++;
 	}
 
-    //Add an element anywhere in the linked list. Pass a value to insert and one to search for
+	//Add an element anywhere in the linked list. Pass a value to insert and one to search for
 	void Insert(const T& insertVal, const T& searchVal)
 	{
-        //I got the structure for this function from our text book: section 17-4b
-        //Declare pointers
-        Node* current; //pointer to traverse the list
-        Node* trailCurrent = nullptr; //pointer just before current
-        Node* newNode;//pointer to create inserted node
-        
-        bool found = false;
-        newNode = new Node(insertVal, nullptr);//Create new node to store data and link
-        newNode->data = insertVal;//Store data value
-        newNode->next = nullptr;//Set the link field of the node to nullptr
-        
-        //Case 1
-        if(head == nullptr)
-        {
-            head = newNode;
-            tail = newNode;
-            size++;
-        }
-        else
-        {
-            current = head;//set current to point to the first node in list
-            while (current != nullptr && !found)//Search the list
-            {
-                if(current->data == searchVal)
-                    found = true;
-                else
-                {
-                    trailCurrent = current;
-                    current = current->next;
-                }
-            }
-            if(current == head)//Case 2
-            {
-                newNode->next = head;
-                head = newNode;
-                size++;
-            }
-            else//Case 3
-            {
-                trailCurrent->next = newNode;
-                newNode->next = current;
-                
-                if(current == nullptr)
-                    tail = newNode;
-                
-                size++;
-            }
-        }
-    }
+		//I got the structure for this function from our text book: section 17-4b
+		//Declare pointers
+		Node* current; //pointer to traverse the list
+		Node* trailCurrent = nullptr; //pointer just before current
+		Node* newNode;//pointer to create inserted node
+
+		bool found = false;
+		newNode = new Node(insertVal, nullptr);//Create new node to store data and link
+		newNode->data = insertVal;//Store data value
+		newNode->next = nullptr;//Set the link field of the node to nullptr
+
+		//Case 1
+		if (head == nullptr)
+		{
+			head = newNode;
+			tail = newNode;
+			size++;
+		}
+		else
+		{
+			current = head;//set current to point to the first node in list
+			while (current != nullptr && !found)//Search the list
+			{
+				if (current->data == searchVal)
+					found = true;
+				else
+				{
+					trailCurrent = current;
+					current = current->next;
+				}
+			}
+			if (current == head)//Case 2
+			{
+				newNode->next = head;
+				head = newNode;
+				size++;
+			}
+			else//Case 3 for 
+			{
+				trailCurrent->next = newNode;
+				newNode->next = current;
+
+				if (current == nullptr)
+					tail = newNode;
+
+				size++;
+			}
+		}
+	}
 
 	void Remove(const T& searchVal)
 	{
 		//Declare pointers
-        Node* current; //pointer to traverse the list
-        Node* trailCurrent = nullptr; //pointer just before current
-        
-        bool found = false;
-        
-        if(head == nullptr)//Empty linked list case
-            cout << "Cannot delete from empty linked list." << endl;
-        else
-        {
-            current = head;
-            
-            //Search for value
-            while(current != nullptr && !found)
-            {
-                if(current->data == searchVal)
-                    found = true;
-                else
-                {
-                    trailCurrent = current;
-                    current = current->next;
-                }
-            if(current == nullptr)//If item isn't found by end of list
-                cout << "The item you wish to remove is not in the linked list." << endl;
-            else
-                if(current->data == searchVal)//If it is found
-                {
-                    if(head == current)
-                    {
-                        head = head->next;
-                        
-                        if(head == nullptr)
-                            tail = nullptr;
-                        
-                        delete current;
-                    }
-                    else//Case 3
-                    {
-                        trailCurrent->next = current->next;
-                        
-                        if(current == tail)
-                            trailCurrent = tail;
-                        
-                        delete current->next;
-                    }
-                    size--;
-                }
-            }
-        }
-        
+		Node* current = nullptr; //pointer to traverse the list
+		Node* trailCurrent = nullptr; //pointer just before current
+
+		bool found = false;
+
+		if (head == nullptr)//Empty linked list case
+			cout << "Cannot delete from empty linked list." << endl;
+		else
+		{
+			current = head;
+
+			//Search for value
+			while (current != nullptr && !found)
+			{
+				if (current->data == searchVal)
+					found = true;
+				else
+				{
+					trailCurrent = current;
+					current = current->next;
+				}
+				if (current == nullptr)//If item isn't found by end of list
+					cout << "The item you wish to remove is not in the linked list." << endl;
+				else
+					if (current->data == searchVal)//If it is found
+					{
+						found = true;
+
+						if (head == current)//If the item is the first in the list,
+						{
+							head = head->next;//Create a new 'first' in list
+
+							if (head == nullptr)
+								tail = nullptr;
+
+							delete current;
+						}
+						else//Case 3
+						{
+							trailCurrent->next = current->next;
+							if (tail == current)
+								tail = trailCurrent
+
+							delete current;
+						}
+						size--;
+					}
+			}
+		}
+
 	}
 
 	void PopFront()
@@ -282,12 +283,12 @@ public:
 		return head == nullptr;
 		return size == 0;
 	}
-    
-    //Added this function to search an undorderedLinkedList from book 17-3a
-    bool search(const T& searchItem)const
-    {
-        
-    }//end search
+
+	//Added this function to search an undorderedLinkedList from book 17-3a
+	bool search(const T& searchItem)const
+	{
+
+	}//end search
 
 private:
 	Node* head = nullptr;
