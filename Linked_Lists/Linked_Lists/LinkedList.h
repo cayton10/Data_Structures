@@ -131,8 +131,6 @@ public:
 
 		bool found = false;
 		newNode = new Node(insertVal, nullptr);//Create new node to store data and link
-		newNode->data = insertVal;//Store data value
-		newNode->next = nullptr;//Set the link field of the node to nullptr
 
 		//Case 1
 		if (head == nullptr)
@@ -217,7 +215,7 @@ public:
 						{
 							trailCurrent->next = current->next;
 							if (tail == current)
-								tail = trailCurrent
+                                tail = trailCurrent;
 
 							delete current;
 						}
@@ -284,11 +282,38 @@ public:
 		return size == 0;
 	}
 
-	//Added this function to search an undorderedLinkedList from book 17-3a
-	bool search(const T& searchItem)const
-	{
-
-	}//end search
+    //Iterate over string to find encapsulating characters. Push them to stack
+    string CharacterMatch(string& str)
+    {
+        //Declare stack
+        stack<char> charMatch;
+        //Get size of soon to be char array
+        auto size = str.length();
+        //Declare character array
+        char charArray[size];
+        //Message to return to user
+        string message;
+        
+        //Copy string into character array
+        strcpy(charArray, str.c_str());
+        
+        //Iterate over characters and push to stack if appropriate character
+        for(int i = 0; i < size; ++i)
+        {
+            if(charArray[i] == '{' || charArray[i] == '(' || charArray[i] == '[')
+                charMatch.push(charArray[i]);
+            if(charArray[i] == '}' && charMatch.top() != '{')
+                message = "Missing or out of place '{}' character: " + str + " <- Here";
+            else if(charArray[i] == ')' && charMatch.top() != '(')
+                message = "Missing or out of place '()' character: " + str + " <- Here";
+            else if(charArray[i] == ']' && charMatch.top() != ']')
+                message = "Missing or out of place '[]' character: " + str + " <- Here";
+            else
+                message = "True: " + str;
+        }
+        
+        return message;
+    }
 
 private:
 	Node* head = nullptr;

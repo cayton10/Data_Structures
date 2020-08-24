@@ -35,6 +35,13 @@ int main()
     intList.GetHeadValue();
     intList.Display();
     
+    stack<char> charMatch;
+    string str;
+    cout << "Enter a string with opening and closing characters. I.E. parantheses, brackets, braces, etc. ";
+    getline(cin, str);
+    
+    cout << intList.CharacterMatch(str) << endl;
+    
     
     return 0;
 }
