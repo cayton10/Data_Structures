@@ -11,6 +11,7 @@
 #include <iostream>
 //Check user inputs: "isdigit()"
 #include <ctype.h>
+#include <string>
 
 using namespace std;
 

@@ -12,6 +12,7 @@
 #include <iomanip>
 #include <random>
 #include <time.h>
+#include <string>
 
 //Negates use of std::cin, etc.
 using namespace std;
@@ -33,7 +34,7 @@ int main()//Entry point (muay importante)
     int num1;
     int num2;
     //Array for RandomFill()
-    int arraySize = 5;
+    const int arraySize = 5;
     int randoArray[arraySize];
     //Variables for IsFactor()
     int dividend;
