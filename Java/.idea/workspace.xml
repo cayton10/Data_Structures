@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05458cb9-e4d0-4616-be1f-1775069856cb" name="Default Changelist" comment="Almost finished with 3 of 4 parts" />
+    <list default="true" id="05458cb9-e4d0-4616-be1f-1775069856cb" name="Default Changelist" comment="Almost finished with 3 of 4 parts">
+      <change beforePath="$PROJECT_DIR$/src/com/movieProject/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/movieProject/Program.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607465721907</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb.">
+      <created>1607467110806</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607467110806</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -82,21 +91,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Starting Last DataStructures Project w/ Java" />
     <MESSAGE value="Almost finished with 3 of 4 parts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost finished with 3 of 4 parts" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/movieProject/Program.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb." />
   </component>
 </project>

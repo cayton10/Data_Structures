@@ -5,7 +5,6 @@ package com.movieProject;
 import com.movieProject.movie.Movie;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -33,7 +32,7 @@ public class Program {
         input.nextLine();
 
         //Declare and construct ArrayList
-        ArrayList<ArrayList<Movie>> movieList = new ArrayList<ArrayList<Movie>>();
+        ArrayList<ArrayList<Movie>> movieList = new ArrayList<>();
 
         //Iterate over user's choice of # of movies, have them enter information
         for(int i = 0; i < numberOfMovies; ++i)
