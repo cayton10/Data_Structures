@@ -2,13 +2,12 @@
 
 package com.movieProject;
 
+import com.movieProject.movie.Movie;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/** Don't know if you're going to be doing any more Java
- *  development, but I highly recommend this IntelliJ IDE(A)
- */
 
 public class Program {
 
@@ -34,42 +33,34 @@ public class Program {
         input.nextLine();
 
         //Declare and construct ArrayList
-        ArrayList<ArrayList<String>> movieList = new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<Movie>> movieList = new ArrayList<ArrayList<Movie>>();
 
         //Iterate over user's choice of # of movies, have them enter information
         for(int i = 0; i < numberOfMovies; ++i)
         {
-            //Declare variables for user input
-            String userTitle = "";
-            String userStar = "";
-            double userRevenue = 0;
+            //Instantiate a new movie object
+            Movie movie = new Movie();
 
             //Start iterative prompt w/ movie title
             System.out.println("Movie #" + (i + 1) + " title: ");
-            userTitle = input.nextLine();
+            movie.setName(input.nextLine());
 
             //Prompt for star actor/actress
             System.out.println("Movie #" + (i + 1) + " star actor/actress: ");
-            userStar = input.nextLine();
+            movie.setStar(input.nextLine());
 
             //Prompt for gross revenue
             System.out.println("Movie #" + (i + 1) + " gross revenue: ");
-            userRevenue = input.nextDouble();
+            movie.setRevenue(input.nextDouble());
             //Since we're not reading "\n" w/ the above function do...
             input.nextLine();
 
-            //Convert from double to string
-            String stringRevenue = Double.toString(userRevenue);
-
             //Allocate space for new row, this feels weird
             movieList.add(new ArrayList<>());
-            //Load user's supplied information into ArrayList
-            movieList.get(i).add(0, userTitle);
-            movieList.get(i).add(1, userStar);
-            movieList.get(i).add(2, stringRevenue);
+            movieList.get(i).add(movie);
         }
 
-        System.out.println(Arrays.deepToString(movieList.toArray()));
+
 
 
     }
