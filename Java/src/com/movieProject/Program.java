@@ -15,6 +15,7 @@ public class Program {
 
         //Declare required variables
         int numberOfMovies;
+        Movie highestRevenue = new Movie();
 
 
         Scanner input = new Scanner(System.in);//Scanner system in for reading user input
@@ -58,6 +59,13 @@ public class Program {
             movieList.add(new ArrayList<>());
             movieList.get(i).add(movie);
         }
+
+        //Store highest revenue movie by calling function
+        highestRevenue = highestRevenue.highestGrossingMovie(movieList);
+        //Print message for first of 3 methods
+        System.out.println("The highest grossing movie is: " + highestRevenue.getName());
+
+
 
 
 

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05458cb9-e4d0-4616-be1f-1775069856cb" name="Default Changelist" comment="Almost finished with 3 of 4 parts">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/movieProject/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/movieProject/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/movieProject/movie/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/movieProject/movie/Movie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -78,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607467110806</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb.">
+      <created>1607467258585</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607467258585</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,5 +107,20 @@
     <MESSAGE value="Almost finished with 3 of 4 parts" />
     <MESSAGE value="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb." />
     <option name="LAST_COMMIT_MESSAGE" value="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/movieProject/Program.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
