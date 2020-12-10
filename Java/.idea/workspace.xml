@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05458cb9-e4d0-4616-be1f-1775069856cb" name="Default Changelist" comment="Almost finished with 3 of 4 parts">
+    <list default="true" id="05458cb9-e4d0-4616-be1f-1775069856cb" name="Default Changelist" comment="Finished first required function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaMovies.iml" beforeDir="false" afterPath="$PROJECT_DIR$/javaMovies.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javaMovies/com/movieProject/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javaMovies/com/movieProject/Program.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javaMovies/com/movieProject/movie/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javaMovies/com/movieProject/movie/Movie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/movieProject/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/movieProject/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/movieProject/movie/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/movieProject/movie/Movie.java" afterDir="false" />
     </list>
@@ -15,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -28,11 +32,28 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.movieProject.movie" />
+      <recent name="com.movieProject" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.movieProject" />
     </key>
@@ -87,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607467258585</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finished first required function">
+      <created>1607616489633</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607616489633</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,7 +134,8 @@
     <MESSAGE value="Starting Last DataStructures Project w/ Java" />
     <MESSAGE value="Almost finished with 3 of 4 parts" />
     <MESSAGE value="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed my stupid mistake. Just completely forgot we were using class objects? What a dumb dumb." />
+    <MESSAGE value="Finished first required function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished first required function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -116,9 +145,14 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/movieProject/movie/Movie.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/movieProject/Program.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="2" />
+          <line>88</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,4 +1,7 @@
-
+/**Benjamin Cayton
+ * Movie list program w/ Java
+ * CIT236 - Data Structures
+ */
 
 package com.movieProject;
 
@@ -10,12 +13,22 @@ import java.util.Scanner;
 
 public class Program {
 
+
+
     //Main program entry point
     public static void main(String[] args) throws InterruptedException { //<- InterruptedException for Thread.sleep()
 
         //Declare required variables
         int numberOfMovies;
-        Movie highestRevenue = new Movie();
+        double totalRevenue;
+
+
+        //Declare variables for checking correct user input
+        String movieName;
+        String starName;
+        double revenue;
+
+        Movie movieObj = new Movie();
 
 
         Scanner input = new Scanner(System.in);//Scanner system in for reading user input
@@ -61,14 +74,29 @@ public class Program {
         }
 
         //Store highest revenue movie by calling function
-        highestRevenue = highestRevenue.highestGrossingMovie(movieList);
+        movieObj = movieObj.highestGrossingMovie(movieList);
         //Print message for first of 3 methods
-        System.out.println("The highest grossing movie is: " + highestRevenue.getName());
+        System.out.println("The highest grossing movie is: " + movieObj.getName());
 
+        totalRevenue = movieObj.totalRevenue(movieList);
 
+        System.out.println("The total revenue of all movies entered is: " + totalRevenue);
+        //Prompt user to enter star name
+        System.out.println("Please enter an actor/actress name to search for: ");
+        starName = input.nextLine();
 
+        //Call function and pass appropriate params
+        movieObj = movieObj.findMovieWithStar(movieList, starName);
 
-
+        System.out.println("The first movie in the list for that star is: ");
+        if(movieObj == null)
+        {
+            System.out.print("No star by that name. Sorry :'(");
+        }
+        else
+        {
+            movieObj.Display();
+        }
 
     }
 }

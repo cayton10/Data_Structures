@@ -15,6 +15,7 @@ public class Movie {
     private double revenue;
 
 
+
     //Setters
     public void setStar(String str) {
         this.star = str;
@@ -81,5 +82,55 @@ public class Movie {
         return bigMovie;
     }
 
+    /**Required method: 'totalRevenue(ArrayList<<>>)'
+     * Method takes an ArrayList object and returns the sum of all element double values
+     * @return double
+     */
+    public double totalRevenue(ArrayList<ArrayList<Movie>> arrayList) {
+
+        //Declare variable to store total revenue
+        double totalRevenue = 0;
+
+        //Process movies in nested foreach
+        for(ArrayList<Movie> item : arrayList)
+        {
+            for(Movie movie : item)
+            {
+                totalRevenue += movie.revenue;
+            }
+        }
+
+        return totalRevenue;
+    }
+
+    /**Required method: 'findMovieWithStar(ArrayList<<>>, String)
+     * Method takes an ArrayList object, String and returns ArrayList object element matching the input string
+     * @return ArrayList element
+     */
+    public Movie findMovieWithStar(ArrayList<ArrayList<Movie>> arrayList, String name)
+    {
+        Movie featuredMovie = null;
+
+        for (ArrayList<Movie> item : arrayList)
+        {
+            for (Movie movie : item)
+            {
+                String star = movie.getStar();
+                if(star.equalsIgnoreCase(name)) //If names are same
+                {
+                    featuredMovie = movie; //Assign movie object
+                    break; //Break the foreach
+                }
+
+            }
+
+            if(featuredMovie != null) //If movie has been assigned
+            {
+                break; //Break foreach
+            }
+        }
+
+        return featuredMovie;
+    }
 
 }
